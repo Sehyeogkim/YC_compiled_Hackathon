@@ -1,0 +1,205 @@
+{
+  "version": 2,
+  "method": "collider_floor_cross_checked_against_splats",
+  "scaleSource": "api_metric_scale_factor",
+  "isMetricScaleEstimated": false,
+  "metricScaleIsMeasuredGroundTruth": false,
+  "assumedCameraHeightM": 1.6,
+  "cameraHeightReferenceKnown": false,
+  "captureCameraHeightM": 1.1115675440717703,
+  "scaleNote": "Uses API metric_scale_factor with independently fitted floor tilt/alignment. API metric scale is itself a model estimate, not measured architectural ground truth. The camera-height comparison does not override metric metadata.",
+  "estimatedMetersPerRawUnit": 1.8628582954406738,
+  "metersPerRawUnit": 1.8628582954406738,
+  "scaleMetadataSource": "world.json.semantics",
+  "apiSemanticsMetadata": {
+    "metric_scale_factor": 1.8628582954406738,
+    "ground_plane_offset": 1.1036200523376465
+  },
+  "scaleCrossCheck": {
+    "apiScale": 1.8628582954406738,
+    "cameraHeightAlternativeScale": 2.681414448092803,
+    "relativeDifference": 0.30527028495514363,
+    "impliedCameraHeightM": 1.1115675440717703
+  },
+  "floorCrossCheck": {
+    "heightRelativeDifference": 0.03084742965720777,
+    "normalAngleDegrees": 0.04119017541609562
+  },
+  "rawFrame": "+x right, +y down, +z forward (OpenCV)",
+  "worldFrame": "meters; +x right, +y forward, +z up; floor below capture camera at origin",
+  "matrixConvention": "row-major 4x4, multiplied by raw column vectors [x,y,z,1]",
+  "rawToWorld": [
+    [
+      1.8628580883580834,
+      -0.0008783683732708434,
+      -2.465472425475369e-23,
+      0.0
+    ],
+    [
+      1.2265508545835192e-07,
+      0.00026012892196186643,
+      1.8628582772785112,
+      0.0
+    ],
+    [
+      -0.0008783683647070844,
+      -1.8628580701959225,
+      0.00026012895087881475,
+      1.1115675440717703
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "rotationRawToWorld": [
+    [
+      0.9999998888361016,
+      -0.0004715164730568293,
+      -1.3234889800848443e-23
+    ],
+    [
+      6.584241311244605e-08,
+      0.00013963967232426066,
+      0.9999999902503788
+    ],
+    [
+      -0.00047151646845972224,
+      -0.9999998790864814,
+      0.00013963968784715274
+    ]
+  ],
+  "floorNormalRaw": [
+    -0.00047151646845972224,
+    -0.9999998790864814,
+    0.00013963968784715274
+  ],
+  "floorOffsetRaw": 0.5966999995610617,
+  "fittedGroundTranslationM": 1.1115675440717703,
+  "floorFitMedianResidualM": 0.008194621252658891,
+  "floorFitP95ResidualM": 0.019616156232487966,
+  "validation": {
+    "status": "warn",
+    "errors": [],
+    "warnings": [
+      "API scale implies 1.112 m capture height, differing by 31% from the assumed (unverified) 1.6 m reference; API scale retained, not silently replaced."
+    ],
+    "floorSpanRadiusFraction": 1.6663022911402843
+  },
+  "fits": {
+    "splat": {
+      "upNormalRaw": [
+        -0.0006285806104301345,
+        -0.9999994486541225,
+        0.000841176477968256
+      ],
+      "cameraHeightRaw": 0.6156925316206994,
+      "planeEquation": "dot(upNormalRaw, rawPoint) + cameraHeightRaw = 0",
+      "tiltDegrees": 0.06016580281284741,
+      "surfaceCells": 4652,
+      "inlierCells": 3921,
+      "inlierFraction": 0.8428632846087705,
+      "horizontalSpanRaw": [
+        4.874267578125,
+        4.12109375
+      ],
+      "coveredQuadrants": 4,
+      "medianResidualRaw": 0.006074112492515273,
+      "p95ResidualRaw": 0.017249349802843948,
+      "radiusRaw": 2.449597311120507
+    },
+    "collider": {
+      "upNormalRaw": [
+        -0.00047151646845972224,
+        -0.9999998790864814,
+        0.00013963968784715274
+      ],
+      "cameraHeightRaw": 0.5966999995610617,
+      "planeEquation": "dot(upNormalRaw, rawPoint) + cameraHeightRaw = 0",
+      "tiltDegrees": 0.028175722698779097,
+      "surfaceCells": 4796,
+      "inlierCells": 4152,
+      "inlierFraction": 0.8657214345287739,
+      "horizontalSpanRaw": [
+        4.683274521133271,
+        3.969615936279297
+      ],
+      "coveredQuadrants": 4,
+      "medianResidualRaw": 0.004398950404716849,
+      "p95ResidualRaw": 0.010530138701638393,
+      "radiusRaw": 2.382290390756655,
+      "fileFrame": "opencv",
+      "frameScoresRaw": {
+        "opencv": 0.10026351974179544,
+        "opengl": 1.4103991318704459
+      },
+      "frameScoreSeparation": 0.9289112440045055
+    }
+  },
+  "spz": {
+    "version": 2,
+    "count": 500000,
+    "opaqueCount": 399431
+  },
+  "opaqueSplatPercentileBoundsM": {
+    "p01": [
+      -8.388707641002611,
+      -5.565953109572472,
+      -0.041785432534044806
+    ],
+    "p99": [
+      8.874177808571261,
+      6.066001342627884,
+      6.128840710729158
+    ]
+  },
+  "sanity": {
+    "rotationDeterminant": 0.9999999999999999,
+    "captureCameraWorldM": [
+      0.0,
+      0.0,
+      1.1115675440717703
+    ],
+    "floorBelowCameraWorldM": [
+      0.0,
+      -5.421010862427522e-20,
+      2.220446049250313e-16
+    ],
+    "oneRawUnitLengthM": 1.8628582954406738
+  },
+  "apiVsFittedGroundOffsetDifferenceM": -0.00794749173412379,
+  "cameraHeightAlternative": {
+    "rawToWorld": [
+      [
+        2.6814141500163196,
+        -0.0012643310833683429,
+        -3.5488224730911095e-23,
+        0.0
+      ],
+      [
+        1.7655079781700786e-07,
+        0.00037443183489721727,
+        2.681414421950028,
+        0.0
+      ],
+      [
+        -0.0012643310710415937,
+        -2.681414123873547,
+        0.00037443187652052434,
+        1.6
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "metersPerRawUnit": 2.681414448092803,
+    "cameraHeightM": 1.6,
+    "referenceKnown": false,
+    "applied": false
+  }
+}

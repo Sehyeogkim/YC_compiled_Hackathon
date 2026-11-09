@@ -1,0 +1,9 @@
+# API packages for the native inference service.
+# Run on the Linux GPU host inside the pinned LeRobot/LIBERO environment.
+# First-time framework/GPU setup:
+#   bash training/runtime/setup_pinned.sh /workspace/werescue-runtime
+#   source /workspace/werescue-runtime/env.sh
+# Then, from the repository root:
+#   python -m pip install -r requirements.txt
+# See prerequisites.txt for hardware, system libraries, and UI requirements.
+-r inference/requirements.txt

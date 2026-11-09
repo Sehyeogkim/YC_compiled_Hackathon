@@ -1,0 +1,13 @@
+__pycache__/
+.venv/
+runs/
+models/
+assets/
+runtime/
+collected/
+exports/
+archives/
+libero-config/
+.env*
+*.log
+*.pid

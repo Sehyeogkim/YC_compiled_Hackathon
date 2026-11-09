@@ -1,0 +1,14 @@
+{
+  "archive": "/workspace/werescue-ui-inference/archives/speedup-20261109T040400Z",
+  "preserved_session": "1a178aa2-4962-425d-a917-3d91ea7d96a6",
+  "last_step": 490,
+  "temporary_session": "ff29401b-c1ae-42b7-b378-e24dd903a1e8",
+  "prior_files_byte_identical": true,
+  "prior_file_count_checked": 1472,
+  "events_prefix_preserved": true,
+  "last_qpos_qvel_exactly_preserved": true,
+  "final_observation_step": 490,
+  "pngs_final": 982,
+  "state_npz_final": 491,
+  "lossless_png_level1_pixel_roundtrip": true
+}

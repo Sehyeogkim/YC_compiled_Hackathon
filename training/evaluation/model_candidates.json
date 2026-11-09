@@ -1,0 +1,77 @@
+{
+  "schema_version": "werescue.model_candidates.v1",
+  "selection_target": "A useful pretrained task policy with measurable correctable failures; 70 percent is a desired development-pilot band, not a guaranteed checkpoint property.",
+  "candidates": [
+    {
+      "repo_id": "lerobot/smolvla_libero",
+      "revision": "a24f1f380461b665158d52acd140152c79e8b36d",
+      "status": "current_actual_runtime_verified",
+      "our_fixed_can_pilot": {
+        "successes": 17,
+        "attempts": 20
+      },
+      "our_position_jitter_pilot": "running",
+      "family": "SmolVLA",
+      "task_scope": "native LIBERO-Object soup can into basket",
+      "model_source": "https://huggingface.co/lerobot/smolvla_libero"
+    },
+    {
+      "repo_id": "HuggingFaceVLA/smolvla_libero",
+      "revision": "6721902bc4d61e50a3bfdb11dfb4cb626f05d102",
+      "family": "SmolVLA",
+      "reported_external_result": {
+        "success_rate": 0.755,
+        "episodes": 200,
+        "suite": "libero_spatial",
+        "n_action_steps": 1,
+        "num_steps": 10,
+        "source_kind": "independent experiment author report",
+        "source": "https://huggingface.co/blog/zuoxingdong/smolvla-libero-spatial-eval"
+      },
+      "our_task_success_rate": null,
+      "different_weights_and_architecture": true,
+      "native_contract": {
+        "state": 8,
+        "action": 7,
+        "camera_keys": [
+          "observation.images.image",
+          "observation.images.image2"
+        ]
+      },
+      "architecture": {
+        "vlm_model_name": "HuggingFaceTB/SmolVLM2-500M-Instruct",
+        "num_vlm_layers": 0,
+        "expert_width_multiplier": 0.5,
+        "n_action_steps": 1
+      },
+      "switch_notes": "Load its own complete config and processors; new weights and backbone cache plus smoke required. Do not substitute current checkpoint statistics/config.",
+      "model_source": "https://huggingface.co/HuggingFaceVLA/smolvla_libero"
+    },
+    {
+      "repo_id": "lerobot/smolvla_libero_plus",
+      "revision": "bb424c8a430f483a7e9aafb24a1a47f5c951eae5",
+      "family": "SmolVLA",
+      "our_task_success_rate": null,
+      "native_contract": {
+        "state": 8,
+        "action": 7,
+        "actual_cameras": 2,
+        "empty_cameras": 2
+      },
+      "switch_notes": "Different released weights trained using LIBERO-plus data; no verified 70-percent result for the selected task.",
+      "model_source": "https://huggingface.co/lerobot/smolvla_libero_plus"
+    },
+    {
+      "family": "OpenVLA",
+      "repo_id": "openvla/openvla-7b-finetuned-libero-object",
+      "reported_external_result": {
+        "all_suite_average": 0.765,
+        "object_suite": 0.884,
+        "source_kind": "model authors report",
+        "source": "https://github.com/openvla/openvla#libero-simulation-benchmark-evaluations"
+      },
+      "our_task_success_rate": null,
+      "switch_notes": "Seven-billion-parameter model; different inference and fine-tuning stack. Defer for this SmolVLA hackathon unless explicitly chosen."
+    }
+  ]
+}

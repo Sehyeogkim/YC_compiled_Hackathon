@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "worldId": "55ff7d06-eaef-4460-9197-8db675bd1293",
+  "method": "local_full_resolution_visible_floor_cell_medians",
+  "baseSource": "current_metric_collider_calibration",
+  "baseRawToWorld": [
+    [
+      1.8628580883580834,
+      -0.0008783683732708434,
+      -2.465472425475369e-23,
+      0.0
+    ],
+    [
+      1.2265508545835192e-07,
+      0.00026012892196186643,
+      1.8628582772785112,
+      0.0
+    ],
+    [
+      -0.0008783683647070844,
+      -1.8628580701959225,
+      0.00026012895087881475,
+      1.1115675440717703
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "baseTransformSha256": "d58a8bc70885aa4ba76069ce76ac7560e45100c042741c986dd1ae88a314bd3d",
+  "visibleFloorCorrection": [
+    [
+      0.9999900511638979,
+      -5.830186688472177e-06,
+      -0.004460665783685836,
+      2.8378148207361265e-05
+    ],
+    [
+      -5.830186688472177e-06,
+      0.9999965834117204,
+      -0.0026140258023075137,
+      1.6630076144026494e-05
+    ],
+    [
+      0.004460665783685836,
+      0.0026140258023075137,
+      0.9999866345756183,
+      -0.006361778778664479
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "refinedRawToWorld": [
+    [
+      1.8628434731952757,
+      0.00743122610245794,
+      -1.2021159841230611e-05,
+      -0.004929953161889281
+    ],
+    [
+      -8.442078193586625e-06,
+      0.005129692215788961,
+      1.8628512326749649,
+      -0.0028890361650671754
+    ],
+    [
+      0.007431231030283741,
+      -1.8628364104312858,
+      0.0051296850769931455,
+      1.1051909087211504
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "refinedTransformSha256": "29e31d839bf2fc873e840c7808ad828369a31039c2ae42a43dfa7582ac5f4b90",
+  "metricScalePreserved": true,
+  "properRotation": true,
+  "metersPerRawUnitBefore": 1.8628582954406736,
+  "metersPerRawUnitAfter": [
+    1.8628582954406736,
+    1.8628582954406736,
+    1.862858295440674
+  ],
+  "spz": {
+    "file": "factory-full.spz",
+    "version": 2,
+    "totalSplats": 1920000,
+    "eligibleSplats": 1300424,
+    "minimumOpacity": 0.5,
+    "maximumGaussianSizeM": 0.05,
+    "fileBytes": 29641821
+  },
+  "selectedSplats": 118530,
+  "populatedCells": 483,
+  "inlierCells": 449,
+  "inlierFraction": 0.9296066252587992,
+  "cellSizeM": 0.1,
+  "footprint": {
+    "centerM": [
+      0.25,
+      0.05
+    ],
+    "halfExtentsM": [
+      1.0,
+      1.15
+    ],
+    "zBandM": [
+      -0.3,
+      0.25
+    ]
+  },
+  "coverageFractionXY": [
+    0.9765648762377122,
+    0.9625935530241342
+  ],
+  "coveredQuadrants": 4,
+  "planeEquation": "z = a*x + b*y + c in the base calibrated world",
+  "planeCoefficients": [
+    -0.004460725403173899,
+    -0.0026140607403386676,
+    0.006361863807674127
+  ],
+  "additionalTiltDegrees": 0.29623030826835783,
+  "interceptBeforeM": 0.006361863807674127,
+  "fitMedianResidualM": 0.0016947785651175058,
+  "fitP95ResidualM": 0.004452251699044053,
+  "correctedFloorMedianAbsZM": 0.0016947559136827493,
+  "correctedFloorP95AbsZM": 0.0044521921928106405,
+  "validation": {
+    "status": "pass",
+    "errors": [],
+    "warnings": []
+  },
+  "note": "This aligns visible Gaussian centers, not measured building dimensions. The API metric scale and robot/native poses remain unchanged; the renderer still applies its own floor offset."
+}

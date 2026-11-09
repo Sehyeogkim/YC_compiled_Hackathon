@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+artifacts/
+data/
+runs/
+checkpoints/
+vendor/
+*.log

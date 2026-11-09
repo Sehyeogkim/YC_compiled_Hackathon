@@ -1,0 +1,16 @@
+WeRescue high-detail can recycling conveyor factory
+
+AI-regenerated cubemap reference assembled into a 4096 x 2048 equirectangular panorama.
+Six square1254 x1254 images were edited with built-in OpenAI image_gen from100-degree perspective projections of the prior factory.
+This creates new AI-generated surface detail; it is not a photograph or surveyed facility, and it is not a native4K single-image output.
+Only stacked compressed metal bales were changed to neutral silver-gray at user request; wooden pallets and surroundings retained.
+Source: source-reference.png; face prompts and localized edits: reference-prompts.json.
+Projection, native face sizes, source hashes, overlap checks and reconstruction validation: source-reference-report.json.
+
+World: World Labs Marble1.1, generated from the assembled2:1 panorama.
+World identity, API metric scale and settled operation cost: world.json.
+Metric/collider floor validation: calibration-report.json.
+Full-resolution visible floor refinement: visible-floor-report.json.
+API metric scale is inferred; the robot and conveyor stay in exact simulator meter coordinates.
+
+Spark (@sparkjsdev/spark): MIT; full license in SPARK_LICENSE.txt.

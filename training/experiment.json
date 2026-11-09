@@ -1,0 +1,230 @@
+{
+  "schema_version": "werescue.experiment.v1",
+  "status": "setup_in_progress_no_training_data_yet",
+  "model": {
+    "repo_id": "lerobot/smolvla_libero",
+    "revision": "a24f1f380461b665158d52acd140152c79e8b36d",
+    "state_dim": 8,
+    "action_dim": 7,
+    "cameras": [
+      "observation.images.camera1",
+      "observation.images.camera2"
+    ],
+    "camera_hw": [
+      256,
+      256
+    ],
+    "evaluation_render_hw": [256, 256],
+    "chunk_size": 50,
+    "n_action_steps": 10,
+    "n_action_steps_note": "Explicit override from checkpoint default 50, held constant for the current Control UI P and both fine-tuned arms. Ten flow steps per policy call; each call executes up to ten native actions. Native UI and evaluation render 256x256."
+  },
+  "environment": {
+    "type": "native_libero",
+    "suite": "libero_object",
+    "task_id": 0,
+    "expected_task_name": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+    "control_mode": "relative",
+    "control_hz": 20,
+    "scene_replacement": "Use the actual native LIBERO scene for observation, human collection, training and evaluation. Factory reskin is deferred.",
+    "selection_status": "candidate_pending_baseline_pilot"
+  },
+  "arms": {
+    "P": {
+      "initialization": "model.revision",
+      "training": false
+    },
+    "P+R": {
+      "initialization": "P",
+      "dataset_segment": "task",
+      "trajectory": "2 -> 3 -> 4",
+      "objective": "successful human task continuation"
+    },
+    "P+R_prime": {
+      "initialization": "P",
+      "dataset_segment": "recovery",
+      "trajectory": "3prime -> 2",
+      "objective": "human recovery to verified resumable state"
+    }
+  },
+  "collection": {
+    "target_human_interventions_to_collect": 10,
+    "qualified_interventions_observed": null,
+    "task_segment_control_source": "operator",
+    "recovery_segment_control_source": "operator",
+    "same_qualified_intervention_can_contribute_to_both_arms": true,
+    "reset_during_segment_allowed": false,
+    "train_initial_state_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "validation_initial_state_ids_reserved": [],
+    "task_test_initial_state_ids": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "video_initial_state_ids_reserved": [
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "heldout_scope": "Held out from intervention fine-tuning, not claimed unseen in original pretraining.",
+    "video_split_note": "Video starts are a subset of the held-out test pool, not additional independent test examples.",
+    "collection_layout_note": "Collect 10 human interventions across the 25 collection layouts. Qualification is checked after collection. Each qualified source episode contributes at most one R-prime and one R segment; observed counts may be below 10."
+  },
+  "training_proposal": {
+    "method": "supervised_behavior_cloning",
+    "freeze_vision_encoder": true,
+    "train_expert_only": true,
+    "train_state_proj": true,
+    "normalization": "preserve_P_processor_statistics",
+    "batch_size": 8,
+    "learning_rate": 3e-05,
+    "steps": 300,
+    "save_freq": 300,
+    "warmup_steps": 30,
+    "seed": 1000,
+    "checkpoint_selection": "fixed_final_step; use separate validation only if selecting a different checkpoint",
+    "status": "time_budgeted_first_pass_for_10_human_interventions; actual_R_and_R_prime_training_not_yet_run"
+  },
+  "deliverables": {
+    "task": "Paired autonomous P versus P+R task completion successes/attempts on identical held-out normal starts and policy RNG seeds, fixed 0-100 percent chart with Wilson intervals.",
+    "recovery": "P+R_prime actual inference clip from held-out failed state 3prime to independently verified resumable state 2; stop the clip at recovery completion.",
+    "results_exist": false
+  },
+  "task_selection": {
+    "objective": "Choose a task/condition where P has meaningful ability and repeated correctable failures, before intervention collection.",
+    "development_pilot_initial_state_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "development_pilot_rollouts": 20,
+    "preferred_baseline_success_band": [
+      0.4,
+      0.7
+    ],
+    "band_is": "engineering_selection_target_not_observed_result",
+    "failure_scope": "one recurrent human-correctable failure family",
+    "freeze_before_final_evaluation": [
+      "task_and_condition_distribution",
+      "controller_and_camera_contract",
+      "policy_execution_horizon",
+      "success_predicate",
+      "timeout",
+      "heldout_start_state_manifest"
+    ],
+    "do_not_select_using_final_test_results": true
+  },
+  "evaluation_protocol": {
+    "final_layout_ids": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "policy_rng_seeds": [
+      1000,
+      1001
+    ],
+    "environment_seed_rule": "10000 + initial_state_id; same reset for both policy RNG seeds",
+    "attempts_per_arm": 50,
+    "unique_layouts_per_arm": 25,
+    "horizon_steps": 280,
+    "control_hz": 20,
+    "pilot_layout_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "pilot_policy_rng_seeds": [
+      1000,
+      1001
+    ],
+    "pilot_is_final_evaluation": false,
+    "object_layout_source": "official native LIBERO init states, saved and applied identically to each arm"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "version": 2,
+  "worldId": "55ff7d06-eaef-4460-9197-8db675bd1293",
+  "model": "marble-1.1",
+  "source": "https://marble.worldlabs.ai/world/55ff7d06-eaef-4460-9197-8db675bd1293",
+  "generatedAt": "2026-11-09T03:12:06Z",
+  "prompt": "A clean modern aluminum beverage can recycling and conveyor sorting factory. Preserve the exact supplied panorama layout: narrow black rubber conveyors on galvanized steel frames, blue optical sorting machines, silver chutes and hoppers, cans and compacted aluminum bales around the perimeter. Flat gray concrete floor with yellow safety lines, gray metal wall panels, regular roof trusses, bright neutral industrial lighting. Preserve the empty central robot service bay and keep it unobstructed for a simulated robot and 1.4 meter conveyor to be inserted later. Background conveyors are human-scale about 0.45 m wide and 0.87 m high, personnel doors 2.1 m tall. No central robot, central workbench, central conveyor, people or woodworking equipment. Sharp coherent photographic industrial architecture and realistic human scale. Preserve the high-detail reference image faithfully: sharp galvanized frame joints, individual cans, panel seams, bolts, roof ribs and concrete grain. The stacked compacted metal bales must remain NEUTRAL SILVER GRAY without colorful printed can labels; preserve their exact shape, stack and wooden pallets. Do not reintroduce multicolored bales.",
+  "input": {
+    "type": "ai_regenerated_cube_faces_reprojected_to_panorama",
+    "width": 4096,
+    "height": 2048,
+    "generator": "OpenAI built-in image_gen + cubemap reprojection",
+    "theme": "aluminum can recycling conveyor sorting factory",
+    "sourceReport": "source-reference-report.json",
+    "prompts": "reference-prompts.json",
+    "baleMaterial": "neutral silver-gray compressed aluminum",
+    "sha256": "5e38d4a76eb61320ff0532b2bb6082c4619abdeaa988c159dcb2f9198e2c8c35",
+    "captureHeightM": null,
+    "sourceReference": "source-reference.png",
+    "dimensionsNote": "Same prior factory layout with regenerated fine material detail; scale from API plus fitted floor, not surveyed building measurements."
+  },
+  "splats": {
+    "100k": "factory-100k.spz",
+    "500k": "factory-500k.spz",
+    "full": "factory-full.spz"
+  },
+  "semantics": {
+    "metric_scale_factor": 1.8628582954406738,
+    "ground_plane_offset": 1.1036200523376465
+  },
+  "lighting": "lighting-pano.jpg",
+  "calibration": {
+    "scaleCorrection": 1,
+    "groundCorrectionM": 0,
+    "yawDegrees": 0,
+    "translationM": [
+      0,
+      0,
+      0
+    ],
+    "estimatedMetersPerRawUnit": 1.8628582954406738,
+    "metersPerRawUnit": 1.8628582954406738,
+    "scaleSource": "api_metric_scale_factor",
+    "isMetricScaleEstimated": false,
+    "metricScaleIsMeasuredGroundTruth": false,
+    "assumedCameraHeightM": 1.6,
+    "captureCameraHeightM": 1.1115675440717703,
+    "cameraHeightReferenceKnown": false,
+    "floorNormalRaw": [
+      -0.00047151646845972224,
+      -0.9999998790864814,
+      0.00013963968784715274
+    ],
+    "floorOffsetRaw": 0.5966999995610617,
+    "rawToWorld": [
+      [
+        1.8628434731952757,
+        0.00743122610245794,
+        -1.2021159841230611e-05,
+        -0.004929953161889281
+      ],
+      [
+        -8.442078193586625e-06,
+        0.005129692215788961,
+        1.8628512326749649,
+        -0.0028890361650671754
+      ],
+      [
+        0.007431231030283741,
+        -1.8628364104312858,
+        0.0051296850769931455,
+        1.1051909087211504
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "validation": {
+      "status": "warn",
+      "errors": [],
+      "warnings": [
+        "API scale implies 1.112 m capture height, differing by 31% from the assumed (unverified) 1.6 m reference; API scale retained, not silently replaced."
+      ],
+      "floorSpanRadiusFraction": 1.6663022911402843
+    },
+    "report": "calibration-report.json",
+    "visibleFloorProvenance": {
+      "version": 1,
+      "report": "visible-floor-report.json",
+      "method": "local_full_resolution_visible_floor_cell_medians",
+      "baseTransformSha256": "d58a8bc70885aa4ba76069ce76ac7560e45100c042741c986dd1ae88a314bd3d",
+      "refinedTransformSha256": "29e31d839bf2fc873e840c7808ad828369a31039c2ae42a43dfa7582ac5f4b90",
+      "metricScalePreserved": true,
+      "additionalTiltDegrees": 0.29623030826835783,
+      "interceptBeforeM": 0.006361863807674127
+    }
+  },
+  "files": {
+    "factory-100k.spz": 1310069,
+    "factory-500k.spz": 7731677,
+    "factory-full.spz": 29641821,
+    "collider.glb": 13318144,
+    "panorama.jpg": 15810230,
+    "thumbnail.jpg": 47380,
+    "lighting-pano.jpg": 207016,
+    "source-reference.jpg": 2987026
+  },
+  "generationCost": {
+    "total_credits": 1500,
+    "line_items": [
+      {
+        "name": "Pano generation (image, pano)",
+        "credits": 0
+      },
+      {
+        "name": "World generation",
+        "credits": 1500
+      }
+    ]
+  },
+  "verification": {
+    "fullSplatCount": 1920000,
+    "visibleFloorMedianResidualM": 0.0016947559136827493,
+    "visibleFloorP95ResidualM": 0.0044521921928106405,
+    "apiScalePreserved": true,
+    "referenceResolution": [
+      4096,
+      2048
+    ],
+    "bales": "neutral silver-gray"
+  }
+}

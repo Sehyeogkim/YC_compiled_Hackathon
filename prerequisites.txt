@@ -1,0 +1,132 @@
+RG Service Center - Prerequisites
+================================
+
+1. Inference GPU (required for native VLA mode)
+
+   The live application runs pretrained SmolVLA inference and native LIBERO
+   simulation on a remote RunPod GPU Pod. Starting the browser UI alone does
+   not start the inference service.
+
+   Verified configuration: RunPod with an NVIDIA A40.
+   This is the tested GPU, not a measured minimum hardware requirement.
+   Other GPU configurations have not been validated by this setup.
+
+   Fine-tuning is optional downstream work. The GPU is required for the live
+   inference workflow even when no training is performed.
+   The separate offline scripted demo can run without a remote inference GPU.
+
+2. Local machine (operator UI)
+
+   - Node.js 20.19+ or 22.12+ and npm.
+   - A modern WebGL2-capable browser with hardware acceleration enabled.
+   - An SSH client and access to the RunPod GPU host.
+   - A local checkout of the project.
+
+   From the repository root:
+
+     cd control-ui
+     npm install
+     npm run dev
+
+   Open the Vite URL, normally http://localhost:5173.
+   Existing World Labs factory assets are included; viewing them requires
+   no World Labs API credentials. Generating new worlds is a separate setup.
+
+3. RunPod GPU host (inference and native simulation)
+
+   - A running Linux GPU Pod with NVIDIA driver access and CUDA support.
+   - Working EGL/OpenGL libraries: libEGL.so.1 and libGL.so.1.
+   - Git, uv, and network access to GitHub and Hugging Face for clean setup.
+   - Python 3.12, provisioned by the pinned setup script.
+   - The project checkout and writable storage under /workspace.
+   - Storage for model downloads, native assets, PNG frames, and state logs.
+     Retain recordings on durable storage or copy them before deleting a Pod.
+   - SSH access for forwarding the inference API to the local machine.
+
+   Verify NVIDIA access:
+
+     nvidia-smi
+
+   From the repository root ON THE GPU HOST, prepare a clean runtime:
+
+     bash training/runtime/setup_pinned.sh /workspace/werescue-runtime
+     source /workspace/werescue-runtime/env.sh
+     export WERESCUE_POLICY_PATH=/workspace/werescue-runtime/models/P
+     python -m pip install -r requirements.txt
+
+   WERESCUE_POLICY_PATH reuses the model downloaded by the clean setup.
+   If a compatible pinned runtime is already installed, activate it instead
+   of creating another environment and use its pinned model path.
+   See training/runtime/README.md.
+
+   Verify PyTorch GPU access in the activated environment:
+
+     python -c "import torch; print(torch.cuda.is_available())"
+
+   Expected result: True.
+
+4. Dependency sources
+
+   Browser packages:
+     control-ui/package.json and control-ui/package-lock.json
+
+   Full native framework setup:
+     training/runtime/setup_pinned.sh
+
+   API packages, installed inside that native environment:
+     requirements.txt -> inference/requirements.txt
+
+   Framework source pin:
+     LeRobot b9cb121cb7d4e3e26ec5c906d08dda68d151ba52
+
+   Policy pin:
+     lerobot/smolvla_libero
+     Revision a24f1f380461b665158d52acd140152c79e8b36d
+
+   Core runtime constraints in the setup script:
+     torch 2.8.0, torchvision 0.23.0, torchcodec 0.7.0,
+     hf-libero 0.1.4, mujoco 3.3.7
+
+   These are core pins, not a complete transitive lockfile. The setup script
+   saves the resolved environment in its runtime directory.
+   Installing requirements.txt alone does not install the full native stack.
+   prerequisites.txt is an installation guide, not a pip requirements file.
+
+5. Start the inference service (GPU host)
+
+   With the pinned runtime activated, run from the repository root:
+
+     export MUJOCO_GL=egl
+     export PYOPENGL_PLATFORM=egl
+     export TOKENIZERS_PARALLELISM=false
+     export WERESCUE_DEVICE=cuda
+     export WERESCUE_HORIZON=1000
+     python -m inference.server
+
+   The API binds to 127.0.0.1:8000 by default. The 1000-step horizon is for
+   interactive collection; benchmark evaluation uses a separate protocol.
+
+6. Connect the local UI
+
+   On the LOCAL machine, replace GPU_HOST with your SSH alias or destination:
+
+     ssh -N -L 8000:127.0.0.1:8000 GPU_HOST
+
+   Add your host's SSH port/key options if needed.
+   Keep this tunnel running while using native mode.
+   The local Vite proxy forwards /robot-api to 127.0.0.1:8000.
+
+   Check http://127.0.0.1:8000/health for model loading/readiness.
+   ready=true means the model is loaded; inference_verified=true appears
+   after actual policy execution. Neither field establishes task success.
+
+   In the UI, expand Connection settings, select GPU - actual VLA, and use
+   /robot-api as the endpoint. Click Connect GPU, then Start VLA.
+
+   For a GPU-free interface preview, select Offline demo instead.
+
+Further details:
+   README.md
+   inference/README.md
+   inference/PROTOCOL.md
+   training/runtime/README.md

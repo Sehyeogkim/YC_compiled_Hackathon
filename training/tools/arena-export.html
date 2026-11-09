@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Physical Arena local run export</title>
+<style>
+body{font:16px system-ui,sans-serif;max-width:750px;margin:48px auto;padding:0 20px;color:#12243b}
+button{font:inherit;padding:12px 18px;border:0;border-radius:8px;background:#1264ad;color:white;cursor:pointer}
+button:disabled{opacity:.5;cursor:wait}pre{white-space:pre-wrap;background:#edf3f8;padding:16px;border-radius:8px}
+</style>
+<h1>Physical Arena run export</h1>
+<p>This page reads runs saved by Physical Arena in this browser. It exports the latest 20 human browser runs for the alphabet soup can into basket task. Original episode records stay in IndexedDB.</p>
+<p id="status">Loading saved runs…</p>
+<button id="download" disabled>Download latest 20 runs</button>
+<pre id="list"></pre>
+<script type="module">
+const TASK='libero_object__pick_up_the_alphabet_soup_and_place_it_in_the_basket';
+const status=document.querySelector('#status'),list=document.querySelector('#list'),button=document.querySelector('#download');
+let episodes=[];
+function fail(error){status.textContent='Export unavailable: '+String(error);}
+function readAll(){return new Promise((resolve,reject)=>{
+ const request=indexedDB.open('wemine-physical-arena-v1',1);
+ request.onerror=()=>reject(request.error);
+ request.onupgradeneeded=()=>reject(new Error('No saved Physical Arena database found in this browser origin.'));
+ request.onsuccess=()=>{
+  const db=request.result;
+  if(!db.objectStoreNames.contains('episodes')){db.close();reject(new Error('Saved episodes store is missing.'));return;}
+  const tx=db.transaction('episodes','readonly'),query=tx.objectStore('episodes').getAll();
+  query.onsuccess=()=>{resolve(query.result);db.close();};query.onerror=()=>{reject(query.error);db.close();};
+ };
+});}
+try{
+ const rows=await readAll();
+ episodes=rows.filter(e=>e.task_id===TASK&&e.source==='human_browser_unverified'&&e.result&&Array.isArray(e.steps))
+  .sort((a,b)=>String(b.created_at).localeCompare(String(a.created_at))).slice(0,20);
+ status.textContent=`${episodes.length} matching saved human runs found. ${episodes.length<20?'Finish more games before final export.':''}`;
+ list.textContent=episodes.map((e,i)=>`${String(i+1).padStart(2,'0')}. ${e.created_at} · ${e.result.success?'success':'incomplete'} · ${e.steps.length} steps · ${e.id}`).join('\n');
+ button.disabled=episodes.length===0;
+}catch(error){fail(error);}
+button.onclick=async()=>{
+ button.disabled=true;status.textContent='Compressing original runs…';
+ try{
+  const payload=episodes.slice().reverse().map(e=>JSON.stringify(e)).join('\n')+'\n';
+  const compressed=await new Response(new Blob([payload],{type:'application/x-ndjson'}).stream().pipeThrough(new CompressionStream('gzip'))).blob();
+  const url=URL.createObjectURL(compressed),link=document.createElement('a');
+  link.href=url;link.download=`physical-arena-human-${episodes.length}-${new Date().toISOString().replace(/[:.]/g,'-')}.jsonl.gz`;
+  document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+  status.textContent=`Exported ${episodes.length} original runs (${compressed.size} compressed bytes).`;
+ }catch(error){fail(error);}finally{button.disabled=false;}
+};
+</script>
+</html>

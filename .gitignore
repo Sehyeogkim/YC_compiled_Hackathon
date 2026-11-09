@@ -1,0 +1,41 @@
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+*.log
+.DS_Store
+.marble/
+__pycache__/
+*.pyc
+control-ui/test-results/
+control-ui/playwright-report/
+
+# Local agent state, caches, and environment files
+.codex/
+.openai/
+.cache/
+.venv/
+*.tsbuildinfo
+*.pid
+.pytest_cache/
+
+# Parallel workspaces and generated presentation iterations (kept locally)
+/demo-ui/
+/render-only/
+/native-collector/
+/output/
+
+# Local collection diagnostics and cloud inventory
+/inference/test_sessions.json
+/inference/collection_timing.jsonl
+/training/runtime_status.json
+
+# Retired background variants; the active HQ package is included
+/control-ui/public/worlds/factory-conveyor/
+/control-ui/public/worlds/factory-standard/
+/control-ui/public/worlds/factory/*
+!/control-ui/public/worlds/factory/SPARK_LICENSE.txt
+
+# Historical remote process inventory
+/training/evaluation/execution.json

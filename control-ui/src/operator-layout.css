@@ -1,0 +1,316 @@
+/* Focused operator workspace. Loaded after styles.css; the legacy dashboard stays untouched. */
+.operator-workspace {
+  --dock-width: 280px;
+  display: grid;
+  grid-template-rows: 52px minmax(0, 1fr);
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  background: #14232c;
+  color: #203441;
+}
+.operator-workspace .operator-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+  height: 52px;
+  padding: 0 16px;
+  background: #12212d;
+  color: #edf5f7;
+  border-bottom: 1px solid #ffffff12;
+  z-index: 20;
+}
+.operator-workspace .operator-header .brand { font-size: 17px; gap: 9px; letter-spacing: -.4px; }
+.operator-workspace .operator-header .brand-mark { width: 27px; height: 27px; border-radius: 7px; }
+.operator-workspace .operator-header .brand-sub { font-size: 9px; letter-spacing: 1px; }
+.operator-workspace .operator-header h1 { font-size: 16px; line-height: 1; letter-spacing: -.4px; }
+.operator-workspace .operator-header > div { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.operator-workspace .operator-header small,
+.operator-workspace .operator-header .mono { font-size: 10px; color: #a7bdc7; }
+.operator-workspace .operator-header button { background: transparent; border: 0; color: #b8cbd3; padding: 7px; }
+.operator-workspace .operator-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--dock-width);
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+}
+.operator-workspace .operator-main:has(.dock-disclosure:not([open])) { grid-template-columns: minmax(0, 1fr) 44px; }
+.operator-workspace .simulator-stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #162a35;
+}
+.operator-workspace .simulator-stage .scene-canvas {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 0;
+}
+.operator-workspace .scene-canvas > div:first-child { height: 100% !important; min-height: 0 !important; width: 100%; }
+.operator-workspace .scene-canvas canvas { display: block; touch-action: none; }
+.operator-workspace .native-viewport { position: relative; width: 100%; height: 100%; }
+.operator-workspace .light-camera-stage { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(180px, 28%); gap: 8px; width: 100%; height: 100%; padding: 8px; background: #081a2b; }
+.operator-workspace .light-camera { position: relative; margin: 0; min-width: 0; min-height: 0; overflow: hidden; border: 1px solid #35566b; border-radius: 7px; background: #0b1c2b; }
+.operator-workspace .light-camera img { display: block; width: 100%; height: 100%; object-fit: contain; image-rendering: auto; }
+.operator-workspace .light-camera figcaption { position: absolute; top: 10px; left: 10px; padding: 5px 8px; border-radius: 4px; background: #081a2bcb; color: #d7edf6; font-size: 10px; }
+.operator-workspace .light-camera-wait { display: grid; place-items: center; height: 100%; color: #91a8bb; }
+.operator-workspace .light-mode-toggle { position: absolute; top: 14px; right: 14px; z-index: 9; padding: 7px 10px; border: 1px solid #66b9dd; border-radius: 5px; background: #081a2bdc; color: #b7e9fc; cursor: pointer; }
+.operator-workspace .light-control-ring { position: absolute; left: 42%; top: 50%; z-index: 4; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 76px; height: 76px; border: 2px solid #72d8ff; border-radius: 50%; background: #39b9f833; color: #b7e9fc; font-size: 29px; cursor: grab; touch-action: none; }
+.operator-workspace .light-control-ring:disabled { opacity: .45; cursor: default; }
+.operator-workspace .light-control-ring:active { cursor: grabbing; }
+.operator-workspace .light-control-ring span { font-size: 8px; letter-spacing: .12em; }
+.operator-workspace .light-control-help { position: absolute; left: 14px; bottom: 46px; z-index: 3; padding: 6px 8px; background: #081a2bcb; color: #d7edf6; font-size: 10px; }
+.operator-workspace .scene-canvas:has(.light-camera-stage) .simulator-hint { display: none; }
+@media(max-width:760px){.operator-workspace .light-camera-stage{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) 25%;}.operator-workspace .light-control-ring{left:calc(50% - 38px);top:35%;}}
+.operator-workspace .scene-status { top: 14px; left: 14px; font-size: 10px; padding: 7px 10px; }
+.operator-workspace .scene-corner { top: 16px; right: 16px; }
+.operator-workspace .scene-legend { bottom: 14px; left: 14px; font-size: 9px; }
+.operator-workspace .factory-background-badge { display: none !important; }
+.operator-workspace .control-dock {
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #fbfcfc;
+  border-left: 1px solid #dce4e8;
+  z-index: 15;
+}
+.operator-workspace .dock-disclosure { height: 100%; min-height: 0; overflow: hidden; }
+.operator-workspace .dock-disclosure[open] { display: grid; grid-template-rows: 43px minmax(0, 1fr); }
+.operator-workspace .dock-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 43px;
+  padding: 0 12px;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  font-size: 11px;
+  font-weight: 650;
+  color: #3c5563;
+  background: #f7f9fa;
+  border-bottom: 1px solid #e4eaee;
+}
+.operator-workspace .dock-toggle::-webkit-details-marker,
+.operator-workspace .dock-extra > summary::-webkit-details-marker { display: none; }
+.operator-workspace .dock-toggle::marker,
+.operator-workspace .dock-extra > summary::marker { content: ''; }
+.operator-workspace .dock-toggle svg { width: 15px; height: 15px; flex-shrink: 0; }
+.operator-workspace .dock-disclosure:not([open]) > .dock-toggle { justify-content: center; padding: 0; width: 43px; }
+.operator-workspace .dock-disclosure:not([open]) > .dock-toggle span { display: none; }
+.operator-workspace .dock-disclosure:not([open]) > .dock-body { display: none; }
+.operator-workspace .dock-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #c6d3da transparent;
+  padding: 13px 12px 20px;
+}
+.operator-workspace .dock-body::-webkit-scrollbar { width: 4px; }
+.operator-workspace .dock-body::-webkit-scrollbar-thumb { background: #c6d3da; border-radius: 8px; }
+.operator-workspace .dock-body p { font-size: 10px; line-height: 1.65; overflow-wrap: anywhere; color: #7b8e9a; }
+.operator-workspace .dock-body h2 { font-size: 13px; letter-spacing: -.2px; }
+.operator-workspace .dock-body h3 { font-size: 11px; font-weight: 600; }
+.operator-workspace .dock-status { display: flex; flex-direction: column; gap: 6px; padding: 10px; background: #eef5f6; border: 1px solid #dce9ed; border-radius: 7px; }
+.operator-workspace .dock-status strong { font-size: 12px; font-weight: 600; }
+.operator-workspace .dock-status > span { display: flex; align-items: center; gap: 6px; font-size: 10px; }
+.operator-workspace .dock-status small { font-size: 9px; line-height: 1.6; color: #7b919d; }
+.operator-workspace .dock-section { display: flex; flex-direction: column; gap: 8px; padding-bottom: 12px; border-bottom: 1px solid #e6ecef; }
+.operator-workspace .dock-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 7px; min-width: 0; }
+.operator-workspace .dock-row > label { font-size: 10px; color: #708692; }
+.operator-workspace .dock-row > span { font-size: 10px; color: #8295a0; }
+.operator-workspace .dock-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.operator-workspace .dock-actions > button { flex: 1 1 calc(50% - 3px); min-width: 0; }
+.operator-workspace .dock-body button {
+  min-height: 32px;
+  padding: 7px 9px;
+  font-size: 10px;
+  line-height: 1.3;
+  border: 1px solid #dce5ea;
+  border-radius: 6px;
+  background: #fff;
+  color: #526e7d;
+  white-space: normal;
+}
+.operator-workspace .dock-body button:not(:disabled):hover { background: #edf5f6; border-color: #bdd6dc; }
+.operator-workspace .dock-body button:disabled { opacity: .42; }
+.operator-workspace .dock-body .dock-primary { width: 100%; min-height: 36px; background: #174555; color: #edf9fb; border-color: #174555; font-size: 11px; font-weight: 600; }
+.operator-workspace .dock-actions > .dock-primary { flex-basis: 100%; }
+.operator-workspace .dock-body .dock-primary:not(:disabled):hover { background: #215c6e; border-color: #215c6e; }
+.operator-workspace .dock-body .dock-danger { color: #a95750; border-color: #efd7d3; background: #fff4f2; }
+.operator-workspace .dock-body .dock-danger:not(:disabled):hover { background: #fce8e4; border-color: #dfb5ad; }
+.operator-workspace .dock-body input:not([type=checkbox]):not([type=range]),
+.operator-workspace .dock-body select { min-height: 31px; max-width: 100%; min-width: 0; padding: 6px 8px; color: #456270; font: inherit; font-size: 10px; border: 1px solid #dce5e9; border-radius: 5px; background: #f7f9fa; }
+.operator-workspace .dock-body input[type=checkbox] { accent-color: #278f9a; width: 14px; height: 14px; margin: 0; }
+.operator-workspace .dock-body input[type=range] { width: 100%; accent-color: #64c8e3; margin: 9px 0; }
+.operator-workspace .dock-body .section-kicker { font-size: 8px; letter-spacing: 1px; }
+.operator-workspace .dock-views { display: flex; gap: 3px; width: 100%; padding: 3px; border: 1px solid #dfe7eb; border-radius: 6px; }
+.operator-workspace .dock-views > button { flex: 1; border: 0; min-height: 30px; padding: 6px 3px; font-size: 9px; gap: 4px; background: transparent; }
+.operator-workspace .dock-views > button.selected { color: #215766; background: #e5f0f2; }
+.operator-workspace .dock-extra { border: 1px solid #e4eaee; border-radius: 6px; background: #fff; padding: 0 9px; }
+.operator-workspace .dock-extra > summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 10px 0; font-size: 10px; font-weight: 600; color: #607986; }
+.operator-workspace .dock-extra[open] { padding-bottom: 10px; }
+.operator-workspace .dock-extra > summary::after { content: '+'; font-size: 14px; font-weight: 400; color: #94a6b0; }
+.operator-workspace .dock-extra[open] > summary::after { content: '−'; }
+.operator-workspace .dock-help { font-size: 10px; line-height: 1.7; color: #8195a0; }
+.operator-workspace .dock-help kbd { display: inline-block; padding: 1px 4px; border: 1px solid #dfe7eb; border-radius: 3px; background: #f5f8f9; color: #587583; font-size: 9px; }
+.operator-workspace .dock-help ol { margin: 5px 0; padding-left: 17px; }
+.operator-workspace .dock-episode { display: flex; flex-direction: column; gap: 7px; font-size: 10px; color: #78909b; }
+.operator-workspace .dock-episode .mono { font-size: 9px; overflow-wrap: anywhere; }
+.operator-workspace .dock-notice { padding: 9px 10px; border-radius: 5px; background: #fff8e9; border: 1px solid #eddfbd; color: #9d7c41; font-size: 10px; line-height: 1.65; overflow-wrap: anywhere; }
+.operator-workspace .dock-body .native-cameras { padding: 4px 0 0; border: 0; }
+.operator-workspace .dock-body .native-cameras > div { gap: 5px; }
+.operator-workspace .dock-body .native-cameras img { width: 100%; max-height: 120px; aspect-ratio: 1; }
+.operator-workspace .dock-body .native-cameras figcaption { font-size: 8px; padding: 4px 5px; }
+.operator-workspace .dock-body .ghost-reference { padding: 0; }
+.operator-workspace .dock-body .ghost-reference p { font-size: 9px; }
+.operator-workspace .dock-body .teleop { border: 0; padding: 0; }
+.operator-workspace .dock-body .jog-layout { margin-top: 6px; gap: 14px; }
+.operator-workspace .dock-body .jog-pad { grid-template-columns: 34px 34px 34px; grid-template-rows: 30px 30px 30px; }
+.operator-workspace .dock-body .jog { min-height: 0; padding: 0; }
+.operator-workspace .dock-body .jog small { font-size: 6px; }
+.operator-workspace .dock-body .z-controls button { min-height: 30px; height: 30px; font-size: 9px; }
+.operator-workspace .dock-body .gripper-controls { max-width: none; margin: 8px 0 0; }
+.operator-workspace .dock-body .gripper-controls button { font-size: 9px; padding: 5px 10px; min-height: 29px; }
+.operator-workspace .dock-body .event-feed { padding: 0; }
+.operator-workspace .dock-body .event { padding-bottom: 9px; }
+.operator-workspace .dock-body .event p { font-size: 9px; }
+.operator-workspace .dock-body .event time { font-size: 8px; }
+.operator-workspace .dock-toggle:focus-visible,
+.operator-workspace .dock-extra > summary:focus-visible { outline: 2px solid #72cfe6; outline-offset: -3px; }
+.operator-workspace .toast { max-width: calc(100vw - 28px); font-size: 11px; }
+
+/* A narrow screen keeps the canvas full-height. The dock overlays its right edge. */
+@media (max-width: 900px) {
+  .operator-workspace .operator-header { padding: 0 11px; gap: 8px; }
+  .operator-workspace .operator-header .brand-sub,
+  .operator-workspace .operator-header .brand-divider { display: none; }
+  .operator-workspace .operator-header small { max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .operator-workspace .operator-main,
+  .operator-workspace .operator-main:has(.dock-disclosure:not([open])) { display: block; }
+  .operator-workspace .simulator-stage { position: absolute; inset: 0; height: 100%; width: 100%; }
+  .operator-workspace .control-dock { position: absolute; top: 0; bottom: 0; right: 0; width: min(280px, calc(100vw - 52px)); box-shadow: -8px 0 30px #0d243021; }
+  .operator-workspace .control-dock:has(.dock-disclosure:not([open])) { width: 44px; box-shadow: -2px 0 10px #0d243015; }
+  .operator-workspace .dock-body { padding: 12px 11px 18px; }
+  .operator-workspace .scene-status { top: 11px; left: 11px; padding: 6px 8px; font-size: 9px; }
+  .operator-workspace .scene-legend { bottom: 11px; left: 11px; font-size: 8px; }
+}
+@media (max-height: 560px) {
+  .operator-workspace .dock-body { gap: 9px; padding-top: 9px; }
+  .operator-workspace .dock-section { padding-bottom: 9px; }
+}
+
+/* Operator palette supplied by the team: navy, amber recovery, cyan task. */
+.operator-workspace { --line: #20394d; --muted: #91a8bb; --amber: #ffb800; --cyan: #67c9f2; --success: #22c7a5; color: #f3f6fa; background: #081a2b; }
+.operator-workspace .operator-header { background: #081a2b; border-color: #20394d; }
+.operator-workspace .operator-header .brand { color: #f3f6fa; }
+.operator-workspace .operator-header .brand-mark { background: #ffb800; color: #081a2b; }
+.operator-workspace .operator-subtitle { color: #91a8bb; font-size: 10px; font-weight: 450; letter-spacing: .1px; margin-left: 5px; padding-left: 11px; border-left: 1px solid #294154; }
+.operator-workspace .operator-header .operator-connection { color: #91a8bb; font-size: 10px; white-space: nowrap; }
+.operator-workspace .operator-connection .mono { color: #d3e4ee; font-size: 10px; margin-left: 8px; }
+.operator-workspace .operator-header .live-dot { background: #22c7a5; }
+.operator-workspace .operator-header .live-dot.gray { background: #627e92; }
+.operator-workspace .control-dock { background: #0d2033; border-left-color: #20394d; }
+.operator-workspace .dock-toggle { background: #0b1e30; color: #dce9f2; border-color: #20394d; }
+.operator-workspace .dock-toggle:hover { background: #122b41; }
+.operator-workspace .dock-toggle > svg { color: #91a8bb; }
+.operator-workspace .dock-disclosure[open] .dock-toggle > svg { transform: none; }
+.operator-workspace .dock-disclosure:not([open]) .dock-toggle > svg { transform: rotate(180deg); }
+.operator-workspace .dock-body { scrollbar-color: #36546c transparent; }
+.operator-workspace .dock-body::-webkit-scrollbar-thumb { background: #36546c; }
+.operator-workspace .dock-body h2,
+.operator-workspace .dock-body h3 { color: #f3f6fa; }
+.operator-workspace .dock-body p,
+.operator-workspace .dock-body .dock-help { color: #91a8bb; }
+.operator-workspace .dock-status { flex-direction: row; align-items: center; justify-content: space-between; background: #10293f; border-color: #203f55; }
+.operator-workspace .dock-status > div { display: flex; flex-direction: column; gap: 5px; }
+.operator-workspace .dock-status strong { color: #f3f6fa; }
+.operator-workspace .dock-status > .mono { font-size: 9px; color: #67c9f2; white-space: nowrap; }
+.operator-workspace .dock-status small { color: #91a8bb; }
+.operator-workspace .dock-section { border-color: #20394d; }
+.operator-workspace .dock-row > span,
+.operator-workspace .dock-row > label,
+.operator-workspace .dock-episode { color: #91a8bb; }
+.operator-workspace .dock-body .section-kicker { color: #7e9cb2; }
+.operator-workspace .dock-body button { color: #d7e7f1; background: #132d43; border-color: #28475f; }
+.operator-workspace .dock-body button:not(:disabled):hover { color: #f3f6fa; background: #1a3b53; border-color: #426985; }
+.operator-workspace .dock-body .dock-primary { color: #081a2b; background: #67c9f2; border-color: #67c9f2; }
+.operator-workspace .dock-body .dock-primary:not(:disabled):hover { color: #081a2b; background: #8edbfb; border-color: #8edbfb; }
+.operator-workspace .dock-body .takeover { width: 100%; color: #081a2b; background: #ffb800; border-color: #ffb800; font-size: 11px; }
+.operator-workspace .dock-body .takeover:not(:disabled):hover { color: #081a2b; background: #ffcb45; border-color: #ffcb45; }
+.operator-workspace .dock-body .mark-recovery,
+.operator-workspace .dock-body .resume { width: 100%; color: #8edbfb; background: #12374a; border-color: #28617a; margin-top: 0; }
+.operator-workspace .dock-body .dock-danger { color: #e4a6a2; background: #392730; border-color: #68434c; }
+.operator-workspace .dock-body .dock-danger:not(:disabled):hover { color: #ffd1cc; background: #513039; border-color: #9b5c61; }
+.operator-workspace .dock-body .dock-danger small { margin-left: auto; font-size: 8px; color: #bd8e91; }
+.operator-workspace .dock-gripper > span,
+.operator-workspace .dock-height > span { margin-right: auto; }
+.operator-workspace .dock-gripper > button,
+.operator-workspace .dock-height > button { min-width: 57px; }
+.operator-workspace .dock-body input:not([type=checkbox]):not([type=range]),
+.operator-workspace .dock-body select { color: #d7e7f1; background: #0a1b2b; border-color: #28475f; color-scheme: dark; }
+.operator-workspace .dock-body input[type=checkbox] { accent-color: #67c9f2; }
+.operator-workspace .dock-settings-label { display: flex; flex-direction: column; gap: 7px; margin-top: 10px; color: #91a8bb; font-size: 10px; }
+.operator-workspace .dock-settings-label input { width: 100%; font-family: 'IBM Plex Mono', monospace; font-size: 9px; }
+.operator-workspace .dock-body .dock-views { flex-direction: column; padding: 0 0 12px; border: 0; border-bottom: 1px solid #20394d; border-radius: 0; gap: 7px; }
+.operator-workspace .dock-views > label { color: #91a8bb; font-size: 10px; }
+.operator-workspace .dock-views .dock-row { flex-wrap: nowrap; }
+.operator-workspace .dock-views select { flex: 1; }
+.operator-workspace .dock-views .dock-row button { flex: 0 0 34px; padding: 6px; }
+.operator-workspace .dock-extra { border-color: #20394d; background: #0c1d2e; }
+.operator-workspace .dock-extra > summary { color: #9db6c8; }
+.operator-workspace .dock-extra > summary::after { color: #6e91aa; }
+.operator-workspace .dock-extra .dock-row { font-size: 10px; color: #91a8bb; }
+.operator-workspace .dock-help kbd { color: #a8d6ec; border-color: #2b485d; background: #122b3f; }
+.operator-workspace .dock-notice { background: #342d20; border-color: #63502b; color: #e4c386 !important; }
+.operator-workspace .dock-notice.error { background: #35232d; border-color: #68414d; color: #e7b1b5 !important; }
+.operator-workspace .dock-notice.success { display: flex; align-items: center; gap: 6px; background: #0d332f; border-color: #1d6659; color: #55d9bd !important; }
+.operator-workspace .dock-body .operator-recording { width: 100%; margin: 0; padding: 9px; border-color: #76581d; background: #392e17; color: #ffcf65; font-size: 10px; }
+.operator-workspace .operator-recording .live-dot { background: #ffb800; }
+.operator-workspace .dock-body .operator-recording.is-task,
+.operator-workspace .dock-body .operator-recording.task { color: #8edbfb; border-color: #28617a; background: #123448; }
+.operator-workspace .operator-recording.is-task .live-dot,
+.operator-workspace .operator-recording.task .live-dot { background: #67c9f2; }
+.operator-workspace .dock-body .jog { color: #9ec1d4; border-color: #28475f; background: #132d43; }
+.operator-workspace .dock-body .enabled .jog { color: #8edbfb; border-color: #28617a; background: #123448; }
+.operator-workspace .dock-body .jog-center { color: #426880; }
+.operator-workspace .dock-body .native-cameras figure { border-color: #28475f; background: #081a2b; }
+.operator-workspace .dock-body .native-cameras figcaption { color: #91a8bb; }
+.operator-workspace .simulator-hint { position: absolute; bottom: 14px; left: 14px; z-index: 8; display: flex; align-items: center; flex-wrap: wrap; gap: 7px 13px; max-width: calc(100% - 28px); padding: 7px 10px; border: 1px solid #35566b80; border-radius: 6px; background: #081a2bc9; color: #d7edf6; backdrop-filter: blur(6px); font-size: 9px; line-height: 1.5; pointer-events: none; }
+.operator-workspace .simulator-hint > span { color: #91a8bb; }
+.operator-workspace .scene-status { color: #e1eff6; border-color: #49687d70; background: #081a2bd9; }
+.operator-workspace .scene-status.human { color: #ffcf65; border-color: #b3853d70; background: #332817e8; }
+.operator-workspace .scene-status .live-dot { background: #67c9f2; }
+.operator-workspace .scene-status.human .live-dot { background: #ffb800; }
+@media (max-width: 900px) {
+  .operator-workspace .operator-subtitle { display: none; }
+  .operator-workspace .operator-header .operator-connection { font-size: 9px; gap: 6px; }
+  .operator-workspace .operator-connection .mono { font-size: 9px; margin-left: 3px; }
+  .operator-workspace .control-dock { box-shadow: -8px 0 30px #020b1859; }
+  .operator-workspace .simulator-hint { left: 11px; bottom: 11px; font-size: 8px; gap: 5px 9px; padding: 6px 8px; }
+}
+.operator-workspace[data-phase='task'] .dock-body .operator-recording { color: #8edbfb; border-color: #28617a; background: #123448; }
+.operator-workspace[data-phase='task'] .operator-recording .live-dot { background: #67c9f2; }
+.operator-workspace[data-phase='task'] .scene-status.human { color: #8edbfb; border-color: #35738e80; background: #102e42e8; }
+.operator-workspace[data-phase='task'] .scene-status.human .live-dot { background: #67c9f2; }
+.operator-workspace[data-phase='recovery'] .dock-body .operator-recording { color: #ffcf65; border-color: #76581d; background: #392e17; }
+.operator-workspace[data-phase='recovery'] .operator-recording .live-dot { background: #ffb800; }

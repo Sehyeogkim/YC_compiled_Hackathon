@@ -1,0 +1,31 @@
+{
+  "scope": "Same initial0/seed123 first40 actual policy actions; server UTC first-dispatch to last-execution spans. Client first-prediction/last-response excluded in BOTH spans. Single-run comparison, not controlled repeated benchmark.",
+  "before": {
+    "steps": 40,
+    "server_event_span_seconds": 13.358089923858643,
+    "native_seconds": 2.0,
+    "event_span_slowdown": 6.679044961929321,
+    "env_step_mean_ms": 56.559157371520996,
+    "env_step_median_ms": 48.389434814453125,
+    "first_dispatch_utc": "2026-11-09T03:57:31.568481+00:00",
+    "last_executed_utc": "2026-11-09T03:57:44.926571+00:00"
+  },
+  "after_vite_batch10": {
+    "steps": 40,
+    "server_event_span_seconds": 4.954890012741089,
+    "native_seconds": 2.0,
+    "event_span_slowdown": 2.4774450063705444,
+    "env_step_mean_ms": 14.564675092697144,
+    "env_step_median_ms": 14.488935470581055,
+    "first_dispatch_utc": "2026-11-09T04:08:03.785830+00:00",
+    "last_executed_utc": "2026-11-09T04:08:08.740720+00:00"
+  },
+  "event_span_speedup": 2.6959407553970767,
+  "first40_actions_exactly_equal": true,
+  "initial_camera_pixels_exactly_equal": {
+    "agentview": true,
+    "wrist": true
+  },
+  "original_archive": "/workspace/werescue-ui-inference/archives/speedup-20261109T040400Z/raw_after_final_observation_saved",
+  "test_session": "cc95ee9f-423d-4dda-8a7f-2ddbd08f6ae1"
+}

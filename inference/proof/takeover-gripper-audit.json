@@ -1,0 +1,1009 @@
+{
+  "schema": "werescue.takeover_gripper_audit.v1",
+  "collected_at": "2026-11-09T04:27:38.077712+00:00",
+  "method": "Read-only metadata/events/state NPZ and installed source inspection; no API reset/step/restart or raw mutation",
+  "cases": [
+    {
+      "session_id": "94f9dfe3-bb56-4357-83b0-fc19c3a6e046",
+      "events_path": "/workspace/werescue-ui-inference/runs/94f9dfe3-bb56-4357-83b0-fc19c3a6e046/events.jsonl",
+      "events_sha256_at_read": "ab0adb64df9f0dc701d00c0a8c94fad876679be76c913394d97c1c87d9f82cb4",
+      "event_count_at_read": 411,
+      "policy_before_handoff": [
+        {
+          "kind": "executed_action",
+          "sequence": 382,
+          "utc": "2026-11-09T04:23:50.169878+00:00",
+          "step": 190,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.007423803210258484,
+            0.039054024964571,
+            -0.14546415209770203,
+            0.00045642934856005013,
+            0.020568111911416054,
+            0.01235334761440754,
+            1.0039180517196655
+          ],
+          "observation_step": 190,
+          "native_action_dim": 7,
+          "fresh_prediction": true,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 384,
+          "utc": "2026-11-09T04:23:50.211010+00:00",
+          "step": 191,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.01778189092874527,
+            0.0365276075899601,
+            -0.06713705509901047,
+            0.00032199081033468246,
+            0.015029815025627613,
+            0.0074281878769397736,
+            0.9962911009788513
+          ],
+          "observation_step": 191,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 386,
+          "utc": "2026-11-09T04:23:50.251323+00:00",
+          "step": 192,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.0359313040971756,
+            0.01828204095363617,
+            -0.03791997954249382,
+            -0.0005405911360867321,
+            0.016100101172924042,
+            0.002099083736538887,
+            1.0020596981048584
+          ],
+          "observation_step": 192,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 388,
+          "utc": "2026-11-09T04:23:50.291398+00:00",
+          "step": 193,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.023243095725774765,
+            0.002408534288406372,
+            -0.03246650844812393,
+            0.00036871337215416133,
+            0.01458155456930399,
+            -4.7044362872838974e-05,
+            0.98466557264328
+          ],
+          "observation_step": 193,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 390,
+          "utc": "2026-11-09T04:23:50.333798+00:00",
+          "step": 194,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.024095255881547928,
+            0.0010646507143974304,
+            0.008447892963886261,
+            0.001277928939089179,
+            0.023442164063453674,
+            -0.005641966126859188,
+            0.9963081479072571
+          ],
+          "observation_step": 194,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 392,
+          "utc": "2026-11-09T04:23:50.373193+00:00",
+          "step": 195,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.016271721571683884,
+            -0.013636603951454163,
+            0.02678639441728592,
+            -0.0012732541654258966,
+            0.009704435244202614,
+            -0.011002570390701294,
+            -1.040805697441101
+          ],
+          "observation_step": 195,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 394,
+          "utc": "2026-11-09T04:23:50.414507+00:00",
+          "step": 196,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.020399753004312515,
+            -0.022194601595401764,
+            0.0721999779343605,
+            -0.0013030706904828548,
+            0.002949685789644718,
+            -0.01872127130627632,
+            -1.0320074558258057
+          ],
+          "observation_step": 196,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 396,
+          "utc": "2026-11-09T04:23:50.456076+00:00",
+          "step": 197,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            -0.010684981942176819,
+            -0.017728492617607117,
+            0.10730121284723282,
+            -0.0017843178939074278,
+            0.0015424704179167747,
+            -0.021101247519254684,
+            -1.0240514278411865
+          ],
+          "observation_step": 197,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 398,
+          "utc": "2026-11-09T04:23:50.497028+00:00",
+          "step": 198,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            -0.004188261926174164,
+            -0.010698512196540833,
+            0.1632700264453888,
+            -0.0028359037823975086,
+            0.004277372732758522,
+            -0.014112251810729504,
+            -1.0115104913711548
+          ],
+          "observation_step": 198,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 400,
+          "utc": "2026-11-09T04:23:50.538939+00:00",
+          "step": 199,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.015362132340669632,
+            0.003448784351348877,
+            0.2196441888809204,
+            -0.002987047890201211,
+            0.012717567384243011,
+            -0.009867850691080093,
+            -1.0115302801132202
+          ],
+          "observation_step": 199,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        }
+      ],
+      "control_handoff": {
+        "kind": "control_handoff",
+        "sequence": 401,
+        "utc": "2026-11-09T04:23:56.359457+00:00",
+        "step": 200,
+        "segment": "recovery",
+        "control_source": "operator",
+        "source": "operator",
+        "queue_reset": true
+      },
+      "executed_after_handoff": [
+        {
+          "kind": "executed_action",
+          "sequence": 403,
+          "utc": "2026-11-09T04:23:56.972694+00:00",
+          "step": 200,
+          "segment": "recovery",
+          "control_source": "operator",
+          "action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "observation_step": 200,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 405,
+          "utc": "2026-11-09T04:23:57.023040+00:00",
+          "step": 201,
+          "segment": "recovery",
+          "control_source": "operator",
+          "action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "observation_step": 201,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 407,
+          "utc": "2026-11-09T04:23:57.066324+00:00",
+          "step": 202,
+          "segment": "recovery",
+          "control_source": "operator",
+          "action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "observation_step": 202,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 409,
+          "utc": "2026-11-09T04:23:57.104545+00:00",
+          "step": 203,
+          "segment": "recovery",
+          "control_source": "operator",
+          "action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "observation_step": 203,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        }
+      ],
+      "terminal": {
+        "kind": "episode_terminal",
+        "sequence": 410,
+        "utc": "2026-11-09T04:23:57.126260+00:00",
+        "step": 204,
+        "segment": "recovery",
+        "control_source": "operator",
+        "success": true,
+        "predicate": "native_LIBERO_check_success"
+      },
+      "policy_action_count_after_handoff": 0,
+      "state_snapshots": [
+        {
+          "observation_step": 195,
+          "sim_time": 10.250000000000092,
+          "finger_qpos": [
+            0.03148635849356651,
+            -0.031458232551813126
+          ],
+          "finger_width_m": 0.06294459104537964,
+          "gripper_actuator_ctrl": [
+            0.0,
+            0.0
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/94f9dfe3-bb56-4357-83b0-fc19c3a6e046/000195.state.npz"
+        },
+        {
+          "observation_step": 196,
+          "sim_time": 10.300000000000109,
+          "finger_qpos": [
+            0.031482793390750885,
+            -0.03146230801939964
+          ],
+          "finger_width_m": 0.06294509768486023,
+          "gripper_actuator_ctrl": [
+            0.0050000000000000044,
+            -0.0050000000000000044
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/94f9dfe3-bb56-4357-83b0-fc19c3a6e046/000196.state.npz"
+        },
+        {
+          "observation_step": 197,
+          "sim_time": 10.350000000000126,
+          "finger_qpos": [
+            0.03147900104522705,
+            -0.03146592527627945
+          ],
+          "finger_width_m": 0.0629449263215065,
+          "gripper_actuator_ctrl": [
+            0.010000000000000009,
+            -0.010000000000000009
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/94f9dfe3-bb56-4357-83b0-fc19c3a6e046/000197.state.npz"
+        },
+        {
+          "observation_step": 198,
+          "sim_time": 10.400000000000142,
+          "finger_qpos": [
+            0.03149095177650452,
+            -0.03149813413619995
+          ],
+          "finger_width_m": 0.06298908591270447,
+          "gripper_actuator_ctrl": [
+            0.015000000000000013,
+            -0.015000000000000013
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/94f9dfe3-bb56-4357-83b0-fc19c3a6e046/000198.state.npz"
+        },
+        {
+          "observation_step": 199,
+          "sim_time": 10.45000000000016,
+          "finger_qpos": [
+            0.03152937442064285,
+            -0.03155776858329773
+          ],
+          "finger_width_m": 0.06308714300394058,
+          "gripper_actuator_ctrl": [
+            0.020000000000000014,
+            -0.020000000000000014
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/94f9dfe3-bb56-4357-83b0-fc19c3a6e046/000199.state.npz"
+        },
+        {
+          "observation_step": 200,
+          "sim_time": 10.500000000000176,
+          "finger_qpos": [
+            0.031572628766298294,
+            -0.03161735460162163
+          ],
+          "finger_width_m": 0.06318998336791992,
+          "gripper_actuator_ctrl": [
+            0.025000000000000015,
+            -0.025000000000000015
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/94f9dfe3-bb56-4357-83b0-fc19c3a6e046/000200.state.npz"
+        },
+        {
+          "observation_step": 201,
+          "sim_time": 10.550000000000193,
+          "finger_qpos": [
+            0.031618401408195496,
+            -0.03169329836964607
+          ],
+          "finger_width_m": 0.06331169605255127,
+          "gripper_actuator_ctrl": [
+            0.03000000000000002,
+            -0.03000000000000002
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/94f9dfe3-bb56-4357-83b0-fc19c3a6e046/000201.state.npz"
+        },
+        {
+          "observation_step": 202,
+          "sim_time": 10.60000000000021,
+          "finger_qpos": [
+            0.031769417226314545,
+            -0.03187793120741844
+          ],
+          "finger_width_m": 0.06364734470844269,
+          "gripper_actuator_ctrl": [
+            0.035000000000000024,
+            -0.035000000000000024
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/94f9dfe3-bb56-4357-83b0-fc19c3a6e046/000202.state.npz"
+        },
+        {
+          "observation_step": 203,
+          "sim_time": 10.650000000000226,
+          "finger_qpos": [
+            0.033340733498334885,
+            -0.033465757966041565
+          ],
+          "finger_width_m": 0.06680649518966675,
+          "gripper_actuator_ctrl": [
+            0.04,
+            -0.04
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/94f9dfe3-bb56-4357-83b0-fc19c3a6e046/000203.state.npz"
+        },
+        {
+          "observation_step": 204,
+          "sim_time": 10.700000000000243,
+          "finger_qpos": [
+            0.035657044500112534,
+            -0.0357913076877594
+          ],
+          "finger_width_m": 0.07144835591316223,
+          "gripper_actuator_ctrl": [
+            0.04,
+            -0.04
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/94f9dfe3-bb56-4357-83b0-fc19c3a6e046/000204.state.npz"
+        }
+      ]
+    },
+    {
+      "session_id": "ef4aed15-4c04-453e-b76a-d64e829768ed",
+      "events_path": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/events.jsonl",
+      "events_sha256_at_read": "411181ebd3bf034ccec18ea6326e1c76772cc28ac0eb233457d94d27d44fba14",
+      "event_count_at_read": 394,
+      "policy_before_handoff": [
+        {
+          "kind": "executed_action",
+          "sequence": 362,
+          "utc": "2026-11-09T04:22:49.161769+00:00",
+          "step": 180,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            -0.05759426951408386,
+            0.00807429850101471,
+            -0.32961520552635193,
+            0.018022743985056877,
+            0.01245690044015646,
+            0.010878773406147957,
+            0.9934989809989929
+          ],
+          "observation_step": 180,
+          "native_action_dim": 7,
+          "fresh_prediction": true,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 364,
+          "utc": "2026-11-09T04:22:49.196955+00:00",
+          "step": 181,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            -0.021540679037570953,
+            0.02108391374349594,
+            -0.211964413523674,
+            -0.0003766925656236708,
+            0.019199201837182045,
+            0.013180527836084366,
+            0.9968913197517395
+          ],
+          "observation_step": 181,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 366,
+          "utc": "2026-11-09T04:22:49.231893+00:00",
+          "step": 182,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.0145186185836792,
+            0.006233207881450653,
+            -0.0812206119298935,
+            -0.0005419685621745884,
+            0.03036552667617798,
+            0.009689196944236755,
+            0.9959251284599304
+          ],
+          "observation_step": 182,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 368,
+          "utc": "2026-11-09T04:22:49.266641+00:00",
+          "step": 183,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.040378957986831665,
+            0.003004498779773712,
+            0.0019241273403167725,
+            0.0009275911725126207,
+            0.01847834512591362,
+            -0.0031858491711318493,
+            0.9963502287864685
+          ],
+          "observation_step": 183,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 370,
+          "utc": "2026-11-09T04:22:49.301107+00:00",
+          "step": 184,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.023587357252836227,
+            -0.014971725642681122,
+            0.020432136952877045,
+            0.0016484097577631474,
+            0.018460087478160858,
+            -0.005379320587962866,
+            0.9945164322853088
+          ],
+          "observation_step": 184,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 372,
+          "utc": "2026-11-09T04:22:49.337453+00:00",
+          "step": 185,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.03329196572303772,
+            -0.027152985334396362,
+            0.02044224739074707,
+            0.0010869966354221106,
+            0.017075739800930023,
+            -0.0075000859797000885,
+            0.9819079041481018
+          ],
+          "observation_step": 185,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 374,
+          "utc": "2026-11-09T04:22:49.372624+00:00",
+          "step": 186,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.03553283214569092,
+            -0.013203896582126617,
+            0.026551656424999237,
+            -0.001172045711427927,
+            0.007066021673381329,
+            -0.013507744297385216,
+            -1.0370866060256958
+          ],
+          "observation_step": 186,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 376,
+          "utc": "2026-11-09T04:22:49.407312+00:00",
+          "step": 187,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.03249252587556839,
+            -0.011111646890640259,
+            0.09674031287431717,
+            -0.002479159040376544,
+            0.005725790746510029,
+            -0.01895066536962986,
+            -1.0225112438201904
+          ],
+          "observation_step": 187,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 378,
+          "utc": "2026-11-09T04:22:49.442222+00:00",
+          "step": 188,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.037810709327459335,
+            -0.008056201040744781,
+            0.15276896953582764,
+            -0.0026012524031102657,
+            0.01591172069311142,
+            -0.018249668180942535,
+            -1.009541392326355
+          ],
+          "observation_step": 188,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 380,
+          "utc": "2026-11-09T04:22:49.477121+00:00",
+          "step": 189,
+          "segment": "task",
+          "control_source": "policy",
+          "action": [
+            0.02016497403383255,
+            -0.011470392346382141,
+            0.18692639470100403,
+            -0.0028895011637359858,
+            0.010263970121741295,
+            -0.01248821709305048,
+            -1.0062917470932007
+          ],
+          "observation_step": 189,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        }
+      ],
+      "control_handoff": {
+        "kind": "control_handoff",
+        "sequence": 381,
+        "utc": "2026-11-09T04:22:49.654833+00:00",
+        "step": 190,
+        "segment": "recovery",
+        "control_source": "operator",
+        "source": "operator",
+        "queue_reset": true
+      },
+      "executed_after_handoff": [
+        {
+          "kind": "executed_action",
+          "sequence": 383,
+          "utc": "2026-11-09T04:22:50.369114+00:00",
+          "step": 190,
+          "segment": "recovery",
+          "control_source": "operator",
+          "action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "observation_step": 190,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 385,
+          "utc": "2026-11-09T04:22:50.408739+00:00",
+          "step": 191,
+          "segment": "recovery",
+          "control_source": "operator",
+          "action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "observation_step": 191,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 387,
+          "utc": "2026-11-09T04:22:50.439990+00:00",
+          "step": 192,
+          "segment": "recovery",
+          "control_source": "operator",
+          "action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "observation_step": 192,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 389,
+          "utc": "2026-11-09T04:22:50.468241+00:00",
+          "step": 193,
+          "segment": "recovery",
+          "control_source": "operator",
+          "action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "observation_step": 193,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        },
+        {
+          "kind": "executed_action",
+          "sequence": 391,
+          "utc": "2026-11-09T04:22:51.271699+00:00",
+          "step": 194,
+          "segment": "recovery",
+          "control_source": "operator",
+          "action": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "observation_step": 194,
+          "native_action_dim": 7,
+          "fresh_prediction": false,
+          "meaning": "native_simulator_step_input; not measured achieved displacement"
+        }
+      ],
+      "terminal": {
+        "kind": "episode_terminal",
+        "sequence": 392,
+        "utc": "2026-11-09T04:22:51.287570+00:00",
+        "step": 195,
+        "segment": "recovery",
+        "control_source": "operator",
+        "success": true,
+        "predicate": "native_LIBERO_check_success"
+      },
+      "policy_action_count_after_handoff": 0,
+      "state_snapshots": [
+        {
+          "observation_step": 185,
+          "sim_time": 9.749999999999925,
+          "finger_qpos": [
+            0.03155713528394699,
+            -0.03138745576143265
+          ],
+          "finger_width_m": 0.06294459104537964,
+          "gripper_actuator_ctrl": [
+            0.0,
+            0.0
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/000185.state.npz"
+        },
+        {
+          "observation_step": 186,
+          "sim_time": 9.799999999999942,
+          "finger_qpos": [
+            0.031553756445646286,
+            -0.03139134496450424
+          ],
+          "finger_width_m": 0.06294509768486023,
+          "gripper_actuator_ctrl": [
+            0.0,
+            0.0
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/000186.state.npz"
+        },
+        {
+          "observation_step": 187,
+          "sim_time": 9.849999999999959,
+          "finger_qpos": [
+            0.031550388783216476,
+            -0.03139461949467659
+          ],
+          "finger_width_m": 0.06294500827789307,
+          "gripper_actuator_ctrl": [
+            0.0050000000000000044,
+            -0.0050000000000000044
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/000187.state.npz"
+        },
+        {
+          "observation_step": 188,
+          "sim_time": 9.899999999999975,
+          "finger_qpos": [
+            0.03154715523123741,
+            -0.03139817342162132
+          ],
+          "finger_width_m": 0.06294532865285873,
+          "gripper_actuator_ctrl": [
+            0.010000000000000009,
+            -0.010000000000000009
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/000188.state.npz"
+        },
+        {
+          "observation_step": 189,
+          "sim_time": 9.949999999999992,
+          "finger_qpos": [
+            0.03155730664730072,
+            -0.03143395110964775
+          ],
+          "finger_width_m": 0.06299126148223877,
+          "gripper_actuator_ctrl": [
+            0.015000000000000013,
+            -0.015000000000000013
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/000189.state.npz"
+        },
+        {
+          "observation_step": 190,
+          "sim_time": 10.000000000000009,
+          "finger_qpos": [
+            0.03159055486321449,
+            -0.03149830549955368
+          ],
+          "finger_width_m": 0.06308886408805847,
+          "gripper_actuator_ctrl": [
+            0.020000000000000014,
+            -0.020000000000000014
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/000190.state.npz"
+        },
+        {
+          "observation_step": 191,
+          "sim_time": 10.050000000000026,
+          "finger_qpos": [
+            0.03162970393896103,
+            -0.03156187757849693
+          ],
+          "finger_width_m": 0.06319157779216766,
+          "gripper_actuator_ctrl": [
+            0.025000000000000015,
+            -0.025000000000000015
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/000191.state.npz"
+        },
+        {
+          "observation_step": 192,
+          "sim_time": 10.100000000000042,
+          "finger_qpos": [
+            0.03167105093598366,
+            -0.031641390174627304
+          ],
+          "finger_width_m": 0.06331244111061096,
+          "gripper_actuator_ctrl": [
+            0.03000000000000002,
+            -0.03000000000000002
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/000192.state.npz"
+        },
+        {
+          "observation_step": 193,
+          "sim_time": 10.150000000000059,
+          "finger_qpos": [
+            0.031808871775865555,
+            -0.03183738514780998
+          ],
+          "finger_width_m": 0.06364625692367554,
+          "gripper_actuator_ctrl": [
+            0.035000000000000024,
+            -0.035000000000000024
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/000193.state.npz"
+        },
+        {
+          "observation_step": 194,
+          "sim_time": 10.200000000000076,
+          "finger_qpos": [
+            0.033364150673151016,
+            -0.03344156593084335
+          ],
+          "finger_width_m": 0.06680572032928467,
+          "gripper_actuator_ctrl": [
+            0.04,
+            -0.04
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/000194.state.npz"
+        },
+        {
+          "observation_step": 195,
+          "sim_time": 10.250000000000092,
+          "finger_qpos": [
+            0.035671137273311615,
+            -0.0357767753303051
+          ],
+          "finger_width_m": 0.07144790887832642,
+          "gripper_actuator_ctrl": [
+            0.04,
+            -0.04
+          ],
+          "source_file": "/workspace/werescue-ui-inference/runs/ef4aed15-4c04-453e-b76a-d64e829768ed/000195.state.npz"
+        }
+      ]
+    }
+  ],
+  "finding": "Both handoffs were followed by automatic operator zero-arm-motion actions with grip=-1. Actuator opening targets increased and native task success followed; no policy actions executed after handoff.",
+  "limitations": [
+    "The user click time is not recorded, so logs do not establish exactly when a click occurred relative to an in-flight batch.",
+    "Neutral zero holds the existing internal gripper command target; it does not freeze measured finger positions or prevent residual physics and natural task success.",
+    "No dataset labels or raw records were changed by this audit."
+  ],
+  "gripper_source": {
+    "path": "/workspace/werescue-ui-inference/runtime/.venv/lib/python3.12/site-packages/robosuite/models/grippers/panda_gripper.py",
+    "sha256": "a3760a8fc4599fa6f79914304b82466f3c1bda1a945943ca693bb57f00dc59eb",
+    "class": "PandaGripper",
+    "method": "format_action",
+    "lines": [
+      43,
+      58
+    ],
+    "formula": "current_action = clip(current_action + [-1, 1] * speed * sign(action), -1, 1)",
+    "neutral_reason": "sign(0)=0, preserving current_action and returning the existing target.",
+    "open_close": "-1 opens, +1 closes, 0 keeps internal target"
+  },
+  "latest_session_from_disk": {
+    "session_id": "94f9dfe3-bb56-4357-83b0-fc19c3a6e046",
+    "last_event": {
+      "kind": "episode_terminal",
+      "sequence": 410,
+      "utc": "2026-11-09T04:23:57.126260+00:00",
+      "step": 204,
+      "segment": "recovery",
+      "control_source": "operator",
+      "success": true,
+      "predicate": "native_LIBERO_check_success"
+    },
+    "event_count": 411
+  }
+}

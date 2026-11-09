@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "method": "perspective_face_reprojection_and_cosine_overlap_blending",
+  "detailProvenance": "Caller-supplied enhanced faces; image generation provenance is recorded separately.",
+  "source": {
+    "file": "/Users/jeff/project/YC_compiled_Hackathon/control-ui/public/worlds/factory-conveyor/panorama.jpg",
+    "width": 4608,
+    "height": 2304,
+    "sha256": "716e1bb3cdc3d3eebcca27e5a37aca59b855f0ec6e174117942ad15c9674f318"
+  },
+  "inputFaces": {
+    "front": {
+      "file": "front-input.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "ea445318c0e5eccf41b09e9002e45ba8e505b0adfffea7e326cfbbc20c66a488"
+    },
+    "right": {
+      "file": "right-input.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "48ba35fc221374143880d607bfea5360a3629535196913df4959723fca3aba5e"
+    },
+    "back": {
+      "file": "back-input.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "aea189b2d8e24a4ee7589533f84dca1aed981b0d4247d5a0d066461ada02ad01"
+    },
+    "left": {
+      "file": "left-input.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "84c57ea1c4be32a7c3539bde434cd946265413d7c515f09675479574c6b85e48"
+    },
+    "up": {
+      "file": "up-input.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "e77e290c3c330c1c2b0623704dfd304b508a63d6d9de59738edb9e47b851782e"
+    },
+    "down": {
+      "file": "down-input.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "a5e1abaad5bfe813d975d8b584b24c887a14ac764ffff08877f5db23697fd369"
+    }
+  },
+  "detailFaces": {
+    "front": {
+      "file": "front-detail.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "999e948cfa288d2dbde18ec5781fc4bf44b13c10c96a2f923644f822f78630b5",
+      "central90DegreeLinearWidthPixels": 1052.2309374963093,
+      "actualInputWidthPixels": 1254
+    },
+    "right": {
+      "file": "right-detail.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "50e31446954b60af919a2e2a24395ce10a3a37a945a88bd0c86b1d2f6d8fb5f1",
+      "central90DegreeLinearWidthPixels": 1052.2309374963093,
+      "actualInputWidthPixels": 1254
+    },
+    "back": {
+      "file": "back-detail.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "da017e3b6b7fca3bcee2f3a0d12741ae9716ecde094ad8c5ba33be640e9555a9",
+      "central90DegreeLinearWidthPixels": 1052.2309374963093,
+      "actualInputWidthPixels": 1254
+    },
+    "left": {
+      "file": "left-detail.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "1fdcae99a4446d3bb3e783b3f58e11c1cf5ed665857a1c7e74379f600586b661",
+      "central90DegreeLinearWidthPixels": 1052.2309374963093,
+      "actualInputWidthPixels": 1254
+    },
+    "up": {
+      "file": "up-detail.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "d3b3d16ecb7557a9096bfec59ed75cf8dea6fd7fa0138ac3a98e3e9803a971c2",
+      "central90DegreeLinearWidthPixels": 1052.2309374963093,
+      "actualInputWidthPixels": 1254
+    },
+    "down": {
+      "file": "down-detail.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "a8a63461e9d59b07ac4c9059c6ef5603d6853a86a9ce5ed1b3597143f3eb82f2",
+      "central90DegreeLinearWidthPixels": 1052.2309374963093,
+      "actualInputWidthPixels": 1254
+    }
+  },
+  "projectionFovDegrees": 100.0,
+  "centralFaceFovDegrees": 90,
+  "overlapBeyondCentral90Degrees": 10.0,
+  "inputOnlyRoundTrip": {
+    "width": 4096,
+    "height": 2048,
+    "meanAbsoluteError8bit": 0.9587534666061401,
+    "p95AbsoluteError8bit": 3.0,
+    "topBandMeanAbsoluteError8bit": 2.1485276565053106,
+    "bottomBandMeanAbsoluteError8bit": 1.3508101319955066,
+    "seamBandMeanAbsoluteError8bit": 1.1744791666666667,
+    "referenceResampling": "Pillow bilinear to output grid",
+    "pass": true
+  },
+  "structureChecks": {
+    "faces": {
+      "front": {
+        "lowFrequencyCorrelation": 0.9856117676228153,
+        "inputLowFrequencyStd8bit": 42.56279335099432,
+        "bestShiftAt128px": [
+          0,
+          0
+        ],
+        "bestShiftCorrelation": 0.9856117676228153,
+        "meanAbsoluteDifferenceFromInputResample8bit": 14.808359554582168
+      },
+      "right": {
+        "lowFrequencyCorrelation": 0.9805821943283307,
+        "inputLowFrequencyStd8bit": 37.43791632622793,
+        "bestShiftAt128px": [
+          0,
+          0
+        ],
+        "bestShiftCorrelation": 0.9805821943283307,
+        "meanAbsoluteDifferenceFromInputResample8bit": 16.448708735978943
+      },
+      "back": {
+        "lowFrequencyCorrelation": 0.9860227506142741,
+        "inputLowFrequencyStd8bit": 38.86402652020902,
+        "bestShiftAt128px": [
+          0,
+          0
+        ],
+        "bestShiftCorrelation": 0.9860227506142741,
+        "meanAbsoluteDifferenceFromInputResample8bit": 17.44644993543256
+      },
+      "left": {
+        "lowFrequencyCorrelation": 0.9754027041871126,
+        "inputLowFrequencyStd8bit": 34.78597416973696,
+        "bestShiftAt128px": [
+          0,
+          0
+        ],
+        "bestShiftCorrelation": 0.9754027041871126,
+        "meanAbsoluteDifferenceFromInputResample8bit": 13.718162698079595
+      },
+      "up": {
+        "lowFrequencyCorrelation": 0.9819013825055563,
+        "inputLowFrequencyStd8bit": 34.79501190168547,
+        "bestShiftAt128px": [
+          0,
+          0
+        ],
+        "bestShiftCorrelation": 0.9819013825055563,
+        "meanAbsoluteDifferenceFromInputResample8bit": 21.47222921738157
+      },
+      "down": {
+        "lowFrequencyCorrelation": 0.9598224157840843,
+        "inputLowFrequencyStd8bit": 17.59429597335672,
+        "bestShiftAt128px": [
+          0,
+          0
+        ],
+        "bestShiftCorrelation": 0.9598224157840843,
+        "meanAbsoluteDifferenceFromInputResample8bit": 9.750347850196755
+      }
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "overlapChecks": {
+    "pairs": {
+      "front/right": {
+        "sampledDirections": 2176,
+        "inputMeanAbsoluteDifference8bit": 0.35340359902479185,
+        "detailMeanAbsoluteDifference8bit": 15.580795640901032,
+        "detailP95AbsoluteDifference8bit": 49.52692993764005
+      },
+      "front/left": {
+        "sampledDirections": 2176,
+        "inputMeanAbsoluteDifference8bit": 0.3769873036418351,
+        "detailMeanAbsoluteDifference8bit": 16.161210169136577,
+        "detailP95AbsoluteDifference8bit": 48.276772643634416
+      },
+      "front/up": {
+        "sampledDirections": 2610,
+        "inputMeanAbsoluteDifference8bit": 0.4085095880327978,
+        "detailMeanAbsoluteDifference8bit": 19.42295565646528,
+        "detailP95AbsoluteDifference8bit": 55.17545304593524
+      },
+      "front/down": {
+        "sampledDirections": 2610,
+        "inputMeanAbsoluteDifference8bit": 0.30230426990186565,
+        "detailMeanAbsoluteDifference8bit": 10.523045836678676,
+        "detailP95AbsoluteDifference8bit": 26.603602603671153
+      },
+      "right/back": {
+        "sampledDirections": 2176,
+        "inputMeanAbsoluteDifference8bit": 0.33923347772180146,
+        "detailMeanAbsoluteDifference8bit": 18.522003542562413,
+        "detailP95AbsoluteDifference8bit": 56.096357016334714
+      },
+      "right/up": {
+        "sampledDirections": 2610,
+        "inputMeanAbsoluteDifference8bit": 0.45824765994287336,
+        "detailMeanAbsoluteDifference8bit": 27.7713729476557,
+        "detailP95AbsoluteDifference8bit": 73.73142663563668
+      },
+      "right/down": {
+        "sampledDirections": 2610,
+        "inputMeanAbsoluteDifference8bit": 0.28965477087743025,
+        "detailMeanAbsoluteDifference8bit": 11.274956247387983,
+        "detailP95AbsoluteDifference8bit": 28.622768366244863
+      },
+      "back/left": {
+        "sampledDirections": 2176,
+        "inputMeanAbsoluteDifference8bit": 0.37978947931961266,
+        "detailMeanAbsoluteDifference8bit": 16.974205255226916,
+        "detailP95AbsoluteDifference8bit": 48.753503659149374
+      },
+      "back/up": {
+        "sampledDirections": 2610,
+        "inputMeanAbsoluteDifference8bit": 0.405682659583092,
+        "detailMeanAbsoluteDifference8bit": 24.482083055875634,
+        "detailP95AbsoluteDifference8bit": 71.09992383177749
+      },
+      "back/down": {
+        "sampledDirections": 2610,
+        "inputMeanAbsoluteDifference8bit": 0.28601922435318544,
+        "detailMeanAbsoluteDifference8bit": 9.061496564232902,
+        "detailP95AbsoluteDifference8bit": 23.105483492156157
+      },
+      "left/up": {
+        "sampledDirections": 2610,
+        "inputMeanAbsoluteDifference8bit": 0.48045967610809354,
+        "detailMeanAbsoluteDifference8bit": 23.627551477766808,
+        "detailP95AbsoluteDifference8bit": 62.64976526811323
+      },
+      "left/down": {
+        "sampledDirections": 2610,
+        "inputMeanAbsoluteDifference8bit": 0.2879636833083041,
+        "detailMeanAbsoluteDifference8bit": 10.130701296992621,
+        "detailP95AbsoluteDifference8bit": 25.941076432201672
+      }
+    },
+    "errors": [],
+    "warnings": [
+      "right/up: visible overlap may need review (MAE 27.8/255)"
+    ]
+  },
+  "output": {
+    "file": "/Users/jeff/project/YC_compiled_Hackathon/control-ui/public/worlds/factory-conveyor-hq/source-reference.png",
+    "width": 4096,
+    "height": 2048,
+    "sha256": "5e38d4a76eb61320ff0532b2bb6082c4619abdeaa988c159dcb2f9198e2c8c35",
+    "bytes": 10963860
+  },
+  "coordinateFrame": "raw OpenCV x-right/y-down/z-forward",
+  "basesForwardRightDown": {
+    "front": [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ]
+    ],
+    "right": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        -1
+      ],
+      [
+        0,
+        1,
+        0
+      ]
+    ],
+    "back": [
+      [
+        0,
+        0,
+        -1
+      ],
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ]
+    ],
+    "left": [
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0
+      ]
+    ],
+    "up": [
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "down": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        -1
+      ]
+    ]
+  },
+  "samplingNote": "4K describes assembled raster dimensions. Cube-to-equirectangular angular sampling varies; no native single-image4K or measured new-detail guarantee is inferred from resizing alone.",
+  "validation": {
+    "status": "warn",
+    "errors": [],
+    "warnings": [
+      "right/up: visible overlap may need review (MAE 27.8/255)"
+    ]
+  }
+}

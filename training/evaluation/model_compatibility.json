@@ -1,0 +1,43 @@
+{
+  "schema_version": "werescue.model_compatibility.v1",
+  "models": [
+    {
+      "repo_id": "lerobot/smolvla_base",
+      "revision": "5e8d12a6e2975b0e5e5fce7c8caf47c371d257b6",
+      "config_url": "https://huggingface.co/lerobot/smolvla_base/resolve/5e8d12a6e2975b0e5e5fce7c8caf47c371d257b6/config.json",
+      "config_sha256": "650584b56c104720f7a3c91d1ec6bec9e8de8ac11e60c92ba2fa82d93eda147d",
+      "state_shape": [
+        6
+      ],
+      "action_shape": [
+        6
+      ],
+      "camera_keys": [
+        "observation.images.camera1",
+        "observation.images.camera2",
+        "observation.images.camera3"
+      ],
+      "native_libero_contract_compatible": false,
+      "compatibility_note": "Raw contract is state6/action6/three cameras, not LIBERO state8/action7/two cameras. Requires an explicitly defined adapted-base experiment. Incompatibility is not a measured 0 percent task success."
+    },
+    {
+      "repo_id": "lerobot/smolvla_libero",
+      "revision": "a24f1f380461b665158d52acd140152c79e8b36d",
+      "config_url": "https://huggingface.co/lerobot/smolvla_libero/resolve/a24f1f380461b665158d52acd140152c79e8b36d/config.json",
+      "config_sha256": "3ed3ed80ee077d94ff22942130642bb60e255443ee65da676bc88ab1684a7efe",
+      "state_shape": [
+        8
+      ],
+      "action_shape": [
+        7
+      ],
+      "camera_keys": [
+        "observation.images.camera1",
+        "observation.images.camera2"
+      ],
+      "native_libero_contract_compatible": true,
+      "compatibility_note": "Native LIBERO contract matches."
+    }
+  ],
+  "measured_success_rates": null
+}
