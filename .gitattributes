@@ -1,0 +1,4 @@
+# Keep GitHub language statistics focused on application code.
+control-ui/public/models/** linguist-vendored
+control-ui/public/worlds/** linguist-vendored
+docs/assets/** linguist-documentation
