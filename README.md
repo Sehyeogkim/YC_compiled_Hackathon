@@ -62,20 +62,9 @@ Both proposed fine-tuning branches start independently from the same pretrained 
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    Operator[Human operator] <--> UI[Browser recovery desk]
-    UI <-->|State, cameras, commands| API[FastAPI bridge]
-    API <--> Sim[Native LIBERO / MuJoCo]
-    Policy[SmolVLA on CUDA GPU] -->|Policy actions| Sim
-    Sim -->|Camera observations and state| Policy
-    API --> Record[Native intervention records]
-    Record --> Segments[Separate R′ and R datasets]
-    Segments -.-> Training[Planned human-data fine-tuning and evaluation]
-    World[World Labs factory background] -->|Visualization only| UI
-```
+![Technical architecture: browser desk, native GPU runtime, intervention records, and planned learning paths](docs/assets/architecture.png)
 
-[View the detailed architecture](docs/assets/architecture.png)
+The browser sends operator commands to the FastAPI bridge. SmolVLA and human controls share one native LIBERO simulator; its observations and executed actions feed the intervention records. Qualified recovery and task segments form separate datasets for the planned training branches. World Labs supplies the browser background only.
 
 | Layer | Stack |
 | --- | --- |
