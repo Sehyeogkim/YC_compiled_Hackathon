@@ -1,4 +1,6 @@
-# Setup guide
+# Native GPU setup guide
+
+This guide is for the canonical `control-ui/` native GPU app. For the current presentation UI at `5173/?local=1`, see [the local presentation guide](LOCAL_DEMO.md).
 
 Run all commands from the repository root unless a step says otherwise.
 

@@ -6,7 +6,7 @@ type Mj=any;
 export type LocalAction=[number,number,number,number,number,number,number];
 export type LocalPreState={qpos:number[];qvel:number[];time:number};
 export type LocalRandomization={seed:number;robotJointQposBefore:number[];robotJointQposAfter:number[];robotJointOffsets:number[];canDeltaXY:[number,number];actualEef:[number,number,number];attempts:number;source:string};
-export type LocalFrame=NativeFrame&{step:number;success:boolean;done:boolean;control_source:'operator'};
+export type LocalFrame=NativeFrame&{step:number;success:boolean;done:boolean;control_source:'operator'|'policy'};
 export type LocalStep={preState:LocalPreState;action:LocalAction;frame:LocalFrame;successAfter:boolean};
 
 const LIMIT=0.03;
@@ -48,7 +48,7 @@ export class LocalLiberoEngine{
   readonly controllerKind='local_6dof_damped_jacobian_pd_approx.v2';
   readonly successKind='local_can_in_basket_heuristic.v1';
   readonly names:string[];private dt:number;private goal:[number,number,number]=[0,0,0];private goalRotation:number[]=[1,0,0,0,1,0,0,0,1];private grip=0;
-  private stepCount=0;private settle=0;private won=false;private jacp:Mj;private jacr:Mj;
+  private stepCount=0;private settle=0;private won=false;private source:'operator'|'policy'='operator';private jacp:Mj;private jacr:Mj;
   private constructor(mj:Mj,model:Mj,data:Mj,payload:NativeScenePayload&{scene_sha256?:string}){
     this.mj=mj;this.model=model;this.data=data;this.sceneSha256=payload.scene_sha256??'';this.names=payload.body_names??[];
     const opt=model.opt;this.dt=Number(opt.timestep);opt.delete?.();
@@ -73,7 +73,7 @@ export class LocalLiberoEngine{
     return {qpos:Array.from(d.qpos),qvel:Array.from(d.qvel),sim_time:Number(d.time),
       eef:vec3(d.site_xpos,8*3),eef_orientation:Array.from(d.site_xmat.slice(8*9,8*9+9)),joints:Array.from(d.qpos.slice(0,7)),gripper:[Number(d.qpos[7]),Number(d.qpos[8])],
       body_poses:{names,xpos:names.map((_,i)=>vec3(d.xpos,i*3)),xquat:names.map((_,i)=>Array.from(d.xquat.slice(i*4,i*4+4)))},
-      step:this.stepCount,success:this.won,done:this.won,control_source:'operator'};
+      step:this.stepCount,success:this.won,done:this.won,control_source:this.source};
   }
   private preState():LocalPreState{return {qpos:Array.from(this.data.qpos),qvel:Array.from(this.data.qvel),time:Number(this.data.time)};}
   private robotWorldContacts(){
@@ -116,12 +116,23 @@ export class LocalLiberoEngine{
       accepted=true;break;
     }
     if(!accepted)throw new Error('Could not sample a collision-free local start');
-    this.goal=vec3(d.site_xpos,8*3);this.goalRotation=Array.from(d.site_xmat.slice(8*9,8*9+9));this.grip=-1;this.stepCount=0;this.settle=0;this.won=false;
+    this.goal=vec3(d.site_xpos,8*3);this.goalRotation=Array.from(d.site_xmat.slice(8*9,8*9+9));this.grip=-1;this.source='operator';this.stepCount=0;this.settle=0;this.won=false;
     for(let i=0;i<7;i++)d.ctrl[i]=0;
     d.ctrl[7]=.04;d.ctrl[8]=-.04;
     const frame=this.frame;
     return {frame,randomization:{seed,robotJointQposBefore:before,robotJointQposAfter:Array.from(d.qpos.slice(0,7)),robotJointOffsets:offsets,canDeltaXY:canDelta,actualEef:frame.eef!,attempts,source:initial.source}};
   }
+  restoreRecordedFrame(frame:{qpos:number[];qvel:number[];sim_time:number;step?:number}):LocalFrame{
+    if(frame.qpos.length!==58||frame.qvel.length!==51||!finite(frame.qpos)||!finite(frame.qvel)||!Number.isFinite(frame.sim_time))throw new Error('Recorded LIBERO state does not match the local scene');
+    this.data.qpos.set(frame.qpos);this.data.qvel.set(frame.qvel);this.data.time=frame.sim_time;
+    this.mj.mj_forward(this.model,this.data);
+    this.goal=vec3(this.data.site_xpos,8*3);
+    this.goalRotation=Array.from(this.data.site_xmat.slice(8*9,8*9+9));
+    this.grip=Math.abs(this.data.qpos[7])<.02?1:-1;
+    this.stepCount=frame.step??0;this.settle=0;this.won=false;this.source='policy';
+    return this.frame;
+  }
+  beginHumanControl(){this.source='operator';this.goal=vec3(this.data.site_xpos,8*3);this.goalRotation=Array.from(this.data.site_xmat.slice(8*9,8*9+9));this.grip=Math.abs(this.data.qpos[7])<.02?1:-1;return this.frame;}
   step(action:number[]):LocalStep{
     if(this.won)throw new Error('Local episode already succeeded');
     if(action.length!==7||!finite(action)||action.some(v=>Math.abs(v)>1))throw new Error('Expected bounded 7D action');
